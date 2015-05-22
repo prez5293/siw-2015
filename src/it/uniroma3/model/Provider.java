@@ -21,8 +21,8 @@ public class Provider {
 	@Column(nullable = false)
 	private String vatin;
 
-	@ManyToMany(mappedBy = "provider",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
-	private List<Product> products;
+	//@ManyToMany(mappedBy = "provider",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
+	//private List<Product> products;
 
 	@OneToOne(cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Address address;
@@ -36,7 +36,7 @@ public class Provider {
 		this.email = email;
 		this.vatin = vatin;
 		this.address = address;
-		this.products = new ArrayList<Product>();
+//		this.products = new ArrayList<Product>();
 	}
 
 	public Long getId() {
@@ -75,11 +75,11 @@ public class Provider {
 		this.vatin = vatin;
 	}
 
-	public List<Product> getProducts() {
-		return products;
-	}
+//	public List<Product> getProducts() {
+	//	return products;
+	//}
 
-	public void setProducts(List<Product> products) {
+/*	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 
@@ -95,4 +95,6 @@ public class Provider {
 		this.products.add(p);
 	}
 
+}
+*/
 }

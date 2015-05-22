@@ -13,29 +13,30 @@
     <div>Name: <h:inputText value="#{productController.name}" 
                      required="true"
                      requiredMessage="Name is mandatory"
-                     id="name"/> 
+                     id="name"/> <h:message for="name" />
 	</div>
     <div>Code: <h:inputText value="#{productController.code}" 
                      required="true"
                      requiredMessage="Code is mandatory"
-                     id="code"/> 
+                     id="code"/> <h:message for="code" />
 	</div>
     <div>Price: <h:inputText value="#{productController.price}" 
                      required="true"
                      requiredMessage="Price is mandatory"
                      converterMessage="Price must be a number"
-                     id="price"/> 
+                     id="price"/> <h:message for="price" />
 	</div>
     <div>Description: <h:inputTextarea value="#{productController.description}" 
     				required="false" 
     				cols="20" 
-    				rows="3" /> 
+    				rows="5" /> 
                      
 	</div>
 	<div>
-		<h:commandButton value="submit"  action="#{productController.createProduct}"/>
+		<h:commandButton value="Submit"  action="#{productController.createProduct}"/>
 	</div>
-
+	<h:commandLink action="#{productController.listProducts}"
+						value="List all Products" />
 </h:form>
 </f:view>
 </body>

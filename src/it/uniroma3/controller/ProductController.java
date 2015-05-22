@@ -1,25 +1,55 @@
 package it.uniroma3.controller;
 
-import it.uniroma3.model.*;
+import java.util.List;
 
-import javax.annotation.ManagedBean;
+import it.uniroma3.model.Product;
+import it.uniroma3.model.ProductFacade;
+
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
 public class ProductController {
-     
-	@EJB(beanName = "pfacade")
-	private ProductFacade pf;
+	
+	@ManagedProperty(value="#{param.id}")
+	private Long id;
 	private String name;
-	private String code;
-	private String description;
 	private Float price;
-	private Integer quantity;
+	private String description;
+	private String code;
 	private Product product;
+	private List<Product> products;
+	
+	@EJB
+	private ProductFacade productFacade;
 	
 	public String createProduct() {
-		this.product = pf.createProduct(name, code, description, price, quantity);
+		this.product = productFacade.createProduct(name, code, price, description);
+		return "product"; 
+	}
+	
+	public String listProducts() {
+		this.products = productFacade.getAllProducts();
+		return "products"; 
+	}
+
+	public String findProduct() {
+		this.product = productFacade.getProduct(id);
 		return "product";
+	}
+	
+	public String findProduct(Long id) {
+		this.product = productFacade.getProduct(id);
+		return "product";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -30,12 +60,12 @@ public class ProductController {
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
+	public Float getPrice() {
+		return price;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 
 	public String getDescription() {
@@ -46,20 +76,12 @@ public class ProductController {
 		this.description = description;
 	}
 
-	public Float getPrice() {
-		return price;
+	public String getCode() {
+		return code;
 	}
 
-	public void setPrice(Float price) {
-		this.price = price;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Product getProduct() {
@@ -69,5 +91,14 @@ public class ProductController {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 }
+
+
