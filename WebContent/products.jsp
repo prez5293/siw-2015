@@ -23,6 +23,8 @@
 		</td><td>${product.price}</td></tr>
 	</c:forEach>
 </table>
+<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
+
 </h:form>
 
 </f:view>
