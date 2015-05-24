@@ -15,6 +15,10 @@ public class Customer extends User {
 
 	@OneToMany(mappedBy = "customer",cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
 	private List<Order> orders;
+	
+	public Customer(){
+		
+	}
 
 	public Customer(String firstName, String lastName, String email,
 			Date dateOfBirth, Date registrationDate,

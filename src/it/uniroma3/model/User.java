@@ -1,6 +1,5 @@
 package it.uniroma3.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -9,10 +8,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@MappedSuperclass
 public abstract class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) 
@@ -32,6 +33,10 @@ public abstract class User {
 
 	@OneToOne(cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
 	private Address address;
+	
+	public User(){
+		
+	}
 	
 	public User(String firstName, String lastName, String email,
 			Date dateOfBirth,

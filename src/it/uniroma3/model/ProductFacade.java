@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-@Stateless
+@Stateless(name="pFacade")
 public class ProductFacade {
 	
     @PersistenceContext(unitName = "siw-2015")

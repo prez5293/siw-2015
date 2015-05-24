@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
-@ManagedBean
+@ManagedBean()
 public class ProductController {
 	
 	@ManagedProperty(value="#{param.id}")
@@ -21,7 +21,7 @@ public class ProductController {
 	private Product product;
 	private List<Product> products;
 	
-	@EJB
+	@EJB(beanName="pFacade")
 	private ProductFacade productFacade;
 	
 	public String createProduct() {
