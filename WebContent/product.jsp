@@ -1,6 +1,6 @@
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +14,9 @@
 <div>Price: ${productController.product.price}</div>
 <div>Description: ${productController.product.description}</div>
 <a href='<c:url value="/faces/index.jsp" />'>back to home</a>
-<a href='<c:url value="/faces/products.jsp" />'>back to list</a>
-
+<h:form>
+<h:commandLink action="#{productController.listProducts}" value="List all Products" />
+</h:form>
 </f:view>
 </body>
 </html>
