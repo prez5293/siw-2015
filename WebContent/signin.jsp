@@ -31,9 +31,8 @@
 			</div>
 			<div>
 				password:
-				<h:inputText value="#{customerController.password}"
-					required="true" requiredMessage="password is mandatory"
-					id="password" />
+				<h:inputText value="#{customerController.password}" required="true" 
+				requiredMessage="password is mandatory"	id="password" />
 				<h:message for="password" />
 
 			</div>
@@ -41,7 +40,8 @@
 				date of birth:
 				<h:inputText value="#{customerController.dateOfBirth}"
 					required="true" requiredMessage="date of birth is mandatory"
-					id="dateOfBirth" />
+                    id="dateOfBirth"
+				    converter="javax.faces.DateTime"/>
 				<h:message for="dateOfBirth" />
 
 			</div>
@@ -52,10 +52,9 @@
                      requiredMessage="address is mandatory"
                      id="address"/> <h:message for="address" />
                      
-	</div> -->
+	        </div> -->
 			<div>
-				<h:commandButton value="Submit"
-					action="#{customerController.createCustomer}" />
+				<h:commandButton value="Submit" action="#{customerController.createCustomer}" />
 			</div>
 
 		</h:form>

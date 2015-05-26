@@ -21,7 +21,7 @@ public class Provider {
 	@Column(nullable = false)
 	private String vatin;
 
-	@ManyToMany(mappedBy = "provider",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
+//	@ManyToMany(mappedBy = "provider",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<Product> products;
 
 	@OneToOne(cascade={CascadeType.ALL}, fetch = FetchType.EAGER)

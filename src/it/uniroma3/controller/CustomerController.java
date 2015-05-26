@@ -18,9 +18,7 @@ public class CustomerController {
 	private String firstName;
 	private String lastName;
 	private String email;
-
 	private Date dateOfBirth;
-
 	private Date registrationDate;
 	private Address address;
 	private String password;
