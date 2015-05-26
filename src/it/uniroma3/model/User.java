@@ -24,6 +24,9 @@ public abstract class User {
 
 	@Column(nullable = false)
 	private String lastName;
+	
+	@Column(nullable = false)
+    private String password;
 
 	private String email;
 
@@ -40,12 +43,13 @@ public abstract class User {
 	
 	public User(String firstName, String lastName, String email,
 			Date dateOfBirth,
-			Address address) {
+			Address address, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.dateOfBirth = dateOfBirth;
 		this.address = address;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -94,6 +98,14 @@ public abstract class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

@@ -22,8 +22,8 @@ public class Customer extends User {
 
 	public Customer(String firstName, String lastName, String email,
 			Date dateOfBirth, Date registrationDate,
-			Address address) {
-		super(firstName,lastName,email,dateOfBirth,address);
+			Address address, String password) {
+		super(firstName,lastName,email,dateOfBirth,address,password);
 		this.registrationDate = registrationDate;
 		this.orders = new ArrayList<Order>();
 	}
