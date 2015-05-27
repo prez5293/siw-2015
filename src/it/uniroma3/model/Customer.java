@@ -27,7 +27,7 @@ public class Customer extends User {
 		this.registrationDate = registrationDate;
 		this.orders = new ArrayList<Order>();
 	}
-
+	
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}

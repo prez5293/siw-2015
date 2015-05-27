@@ -3,6 +3,7 @@ package it.uniroma3.model;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 import java.util.Date;
@@ -26,25 +27,37 @@ public class CustomerFacade {
         List<Customer> customers = em.createQuery(cq).getResultList();
 		return customers;
 	}
+	
+	public Customer retrieveCustomer(String email){
+		Customer c;
+		Query q=em.createQuery("SELECT c FROM Customer c WHERE c.email=:email");
+		q.setParameter("email", email);
+		if(q.getResultList().isEmpty()) return null;
+		else {
+			c = (Customer)q.getSingleResult();
+		return c;
+		}
+	}
+	
 
 	
-	public Product getProduct(Long id) {
-	    Product product = em.find(Product.class, id);
-		return product;
+	public Customer getCustomer(Long id) {
+	    Customer customer = em.find(Customer.class, id);
+		return customer;
 	}
 	
 
 
-	public void updateProduct(Product product) {
-        em.merge(product);
+	public void updateCustomer(Customer customer) {
+        em.merge(customer);
 	}
 	
-    private void deleteProduct(Product product) {
-        em.remove(product);
+    private void deleteCustomer(Customer customer) {
+        em.remove(customer);
     }
 
-	public void deleteProduct(Long id) {
-        Product product = em.find(Product.class, id);
-        deleteProduct(product);
+	public void deleteCustomer(Long id) {
+        Customer customer = em.find(Customer.class, id);
+        deleteCustomer(customer);
 	}
 }

@@ -3,7 +3,9 @@ package it.uniroma3.model;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+
 import java.util.List;
 
 @Stateless(name="pFacade")
@@ -18,10 +20,10 @@ public class ProductFacade {
 		return product;
 	}
 	
-	public Product getProduct(Long id) {
-	    Product product = em.find(Product.class, id);
-		return product;
-	}
+    public Product retrieveProduct(Long id) {
+        Product product = em.find(Product.class, id);
+        return product;
+    }
 	
 	public List<Product> getAllProducts() {
         CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);

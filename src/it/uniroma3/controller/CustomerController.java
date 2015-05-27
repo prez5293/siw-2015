@@ -38,6 +38,15 @@ public class CustomerController {
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, dateOfBirth, address, password);
 		return "customer"; 
 	}
+	
+	public String loginCustomer(){
+		Customer c = customerFacade.retrieveCustomer(email);
+		if(c!=null)
+			if(this.password.equals(c.getPassword()))
+				return "access";
+		return "loginError";
+
+	}
 
 	public Long getId() {
 		return id;
