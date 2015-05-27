@@ -11,6 +11,7 @@
 <body>
 	<f:view>
 		<h:form>
+			<h3> Customer's informations: </h3>
 			<div>
 				firstName:
 				<h:inputText value="#{customerController.firstName}" required="true"
@@ -31,7 +32,7 @@
 			</div>
 			<div>
 				password:
-				<h:inputText value="#{customerController.password}" required="true" 
+				<h:inputSecret value="#{customerController.password}" required="true" 
 				requiredMessage="password is mandatory"	id="password" />
 				<h:message for="password" />
 
@@ -48,13 +49,35 @@
 
 			</div>
 
-
-			<!-- <div>address: <h:inputText value="#{customerController.address}" 
+			<h3> Address: </h3>
+			
+		    <div>street: <h:inputText value="#{customerController.cstreet}" 
     				 required="true"
-                     requiredMessage="address is mandatory"
-                     id="address"/> <h:message for="address" />
+                     requiredMessage="street is mandatory"
+                     id="cstreet"/> <h:message for="cstreet" />
                      
-	        </div> -->
+	        </div>
+	        
+	        <div>state: <h:inputText value="#{customerController.cstate}" 
+    				 required="true"
+                     requiredMessage="stato is mandatory"
+                     id="cstate"/> <h:message for="cstate" />
+	        </div>
+	        
+	        <div>zipcode: <h:inputText value="#{customerController.czipcode}" 
+    				 required="true"
+                     requiredMessage="zipcode is mandatory"
+                     id="czipcode"/> <h:message for="czipcode" />
+                     
+	        </div>
+	        
+	        <div>country: <h:inputText value="#{customerController.ccountry}" 
+    				 required="true"
+                     requiredMessage="country is mandatory"
+                     id="ccountry"/> <h:message for="ccountry" />
+                     
+	        </div>
+	        
 			<div>
 				<h:commandButton value="Submit" action="#{customerController.createCustomer}" />
 			</div>

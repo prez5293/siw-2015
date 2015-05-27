@@ -8,6 +8,7 @@
 		<class>it.uniroma3.model.Product</class>
 	    <class>it.uniroma3.model.Provider</class>
 	    <class>it.uniroma3.model.Customer</class>
+	    <class>it.uniroma3.model.Address</class>
 		<properties>
   			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" /> 
   	

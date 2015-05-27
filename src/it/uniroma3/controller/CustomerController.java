@@ -23,12 +23,18 @@ public class CustomerController {
 	private Address address;
 	private String password;
 	private Customer customer;
+	private String cstreet;
+	private String cstate;
+	private String czipcode;
+	private String ccountry;
 	private List<Customer> customers;
+
 	
 	@EJB(beanName="cFacade")
 	private CustomerFacade customerFacade;
 	
 	public String createCustomer() {
+		this.address = new Address(cstreet, cstate, czipcode, ccountry);
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, dateOfBirth, address, password);
 		return "customer"; 
 	}
@@ -119,6 +125,38 @@ public class CustomerController {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCstreet() {
+		return cstreet;
+	}
+
+	public void setCstreet(String cstreet) {
+		this.cstreet = cstreet;
+	}
+
+	public String getCstate() {
+		return cstate;
+	}
+
+	public void setCstate(String cstate) {
+		this.cstate = cstate;
+	}
+
+	public String getCzipcode() {
+		return czipcode;
+	}
+
+	public void setCzipcode(String czipcode) {
+		this.czipcode = czipcode;
+	}
+
+	public String getCcountry() {
+		return ccountry;
+	}
+
+	public void setCcountry(String ccountry) {
+		this.ccountry = ccountry;
 	}
 
 }

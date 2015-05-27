@@ -15,7 +15,7 @@ public class CustomerFacade {
     private EntityManager em;
     
 	public Customer createCustomer(String firstName, String lastName, String email, Date dateOfBirth, Address address, String password) {
-		Customer customer = new Customer(firstName, lastName, email, dateOfBirth, new Date(), null, password);
+		Customer customer = new Customer(firstName, lastName, email, dateOfBirth, new Date(), address, password);
 		em.persist(customer);
 		return customer;
 	}

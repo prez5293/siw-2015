@@ -9,13 +9,18 @@
 <body>
 <f:view>
 <h1>Successfully Registered</h1>
-<h2>Summary:<h2>
-<div>first name: ${customerController.customer.firstName}</div>
-<div>last name: ${customerController.customer.lastName}</div>
-<div>email: ${customerController.customer.email}</div>
-<div>password: ${customerController.customer.password}</div>
-<div>date of birth: ${customerController.customer.dateOfBirth}</div>
-<div>registration date: ${customerController.customer.registrationDate}</div>
+<h2>Summary:</h2>
+<div><b>first name:</b> ${customerController.customer.firstName}</div>
+<div><b>last name:</b> ${customerController.customer.lastName}</div>
+<div><b>email:</b> ${customerController.customer.email}</div>
+<div><b>password</b>: ${customerController.customer.password}</div>
+<div><b>date of birth:</b> ${customerController.customer.dateOfBirth}</div>
+<div><b>registration date:</b> ${customerController.customer.registrationDate}</div>
+<div><b>street:</b> ${customerController.address.street}</div>
+<div><b>state:</b> ${customerController.address.state}</div>
+<div><b>zipcode:</b> ${customerController.address.zipcode}</div>
+<div><b>country:</b> ${customerController.address.country}</div>
+
 
 
 <a href='<c:url value="/faces/index.jsp" />'>back to home</a>
