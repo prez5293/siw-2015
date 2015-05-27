@@ -41,7 +41,9 @@
 				<h:inputText value="#{customerController.dateOfBirth}"
 					required="true" requiredMessage="date of birth is mandatory"
                     id="dateOfBirth"
-				    converter="javax.faces.DateTime"/>
+				    converter="javax.faces.DateTime"
+				    converterMessage="Formato data errato. Esempio: 27-mag-2015" />
+				    
 				<h:message for="dateOfBirth" />
 
 			</div>
