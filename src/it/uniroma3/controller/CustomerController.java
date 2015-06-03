@@ -13,7 +13,7 @@ import javax.faces.bean.ManagedProperty;
 @ManagedBean()
 
 public class CustomerController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
@@ -30,16 +30,19 @@ public class CustomerController {
 	private String ccountry;
 	private List<Customer> customers;
 
-	
+
 	@EJB(beanName="cFacade")
 	private CustomerFacade customerFacade;
-	
+
 	public String createCustomer() {
 		this.address = new Address(cstreet, cstate, czipcode, ccountry);
 		this.customer = customerFacade.createCustomer(firstName, lastName, email, dateOfBirth, address, password);
-		return "customer"; 
+		if(this.customer != null) 
+			return "customer"; 
+		else 
+			return "signinError";
 	}
-	
+
 	public String loginCustomer(){
 		Customer c = customerFacade.retrieveCustomer(email);
 		if(c!=null)
