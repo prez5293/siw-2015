@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedProperty;
 
 
 @ManagedBean()
+
 public class CustomerController {
 	
 	@ManagedProperty(value="#{param.id}")

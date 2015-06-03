@@ -4,7 +4,6 @@ import java.util.List;
 
 import it.uniroma3.model.Product;
 import it.uniroma3.model.ProductFacade;
-
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -18,6 +17,7 @@ public class ProductController {
 	private Float price;
 	private String description;
 	private String code;
+	private String pemail;
 	private Product product;
 	private List<Product> products;
 	
@@ -25,8 +25,11 @@ public class ProductController {
 	private ProductFacade productFacade;
 	
 	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, price, description);
-		return "product"; 
+		this.product = productFacade.createProduct(name, code, price, description, pemail);
+		if(this.product!=null)
+			return "product"; 
+		else
+			return "loginError";
 	}
 	
 	public String listProducts() {
@@ -103,6 +106,14 @@ public class ProductController {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public String getPemail() {
+		return pemail;
+	}
+
+	public void setPemail(String pemail) {
+		this.pemail = pemail;
 	}
 }
 

@@ -21,7 +21,7 @@ public class Provider {
 	@Column(nullable = false)
 	private String vatin;
 
-//	@ManyToMany(mappedBy = "provider",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
+	@ManyToMany
 	private List<Product> products;
 
 	@OneToOne(cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -93,6 +93,18 @@ public class Provider {
 	
 	public void addProduct(Product p) {
 		this.products.add(p);
+	}
+
+	public String getIva() {
+		return iva;
+	}
+
+	public void setIva(String iva) {
+		this.iva = iva;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

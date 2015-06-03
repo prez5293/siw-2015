@@ -1,9 +1,15 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.Column;
 
@@ -26,14 +32,17 @@ import javax.persistence.Column;
 	@Column(nullable = false)
 	private String code;
 	
-	public Product() {
-    }
+	@ManyToMany(mappedBy = "products",cascade={CascadeType.ALL}, fetch = FetchType.EAGER)
+	private List<Provider> providers;
+	
+	
 
 	public Product(String name, Float price, String description, String code) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.code = code;
+        this.providers = new ArrayList<Provider>();
 }
 
     //          Getters & Setters        
@@ -73,6 +82,10 @@ import javax.persistence.Column;
     public void setPrice(Float price) {
         this.price = price;
     }
+    
+    public void addProvider(Provider p) {
+    	this.providers.add(p);
+    }
 	
     public boolean equals(Object obj) {
         Product product = (Product)obj;
@@ -85,6 +98,14 @@ import javax.persistence.Column;
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
 	}
 
 

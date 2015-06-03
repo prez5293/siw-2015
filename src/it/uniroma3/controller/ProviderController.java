@@ -17,13 +17,18 @@ public class ProviderController {
 	private String phoneNumber;
 	private String email;
 	private String vatin;
-	private Address address;
 	private Provider provider;
+	private Address address;
+	private String pstreet;
+	private String pstate;
+	private String pzipcode;
+	private String pcountry;
 	
 	@EJB(beanName="pvFacade")
 	private ProviderFacade providerFacade;
 	
 	public String createProvider() {
+		this.address = new Address(pstreet, pstate, pzipcode, pcountry);
 		this.provider = providerFacade.createProvider(iva, phoneNumber, email, vatin, address);
 		return "provider"; 
 	}
@@ -117,6 +122,46 @@ public class ProviderController {
 
 	public void setProviderFacade(ProviderFacade providerFacade) {
 		this.providerFacade = providerFacade;
+	}
+
+
+	public String getPstreet() {
+		return pstreet;
+	}
+
+
+	public void setPstreet(String pstreet) {
+		this.pstreet = pstreet;
+	}
+
+
+	public String getPstate() {
+		return pstate;
+	}
+
+
+	public void setPstate(String pstate) {
+		this.pstate = pstate;
+	}
+
+
+	public String getPzipcode() {
+		return pzipcode;
+	}
+
+
+	public void setPzipcode(String pzipcode) {
+		this.pzipcode = pzipcode;
+	}
+
+
+	public String getPcountry() {
+		return pcountry;
+	}
+
+
+	public void setPcountry(String pcountry) {
+		this.pcountry = pcountry;
 	}
 	
 }
