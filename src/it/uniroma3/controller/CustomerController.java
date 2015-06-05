@@ -6,9 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 
 @ManagedBean()
@@ -45,13 +47,19 @@ public class CustomerController {
 
 	public String loginCustomer(){
 		Customer c = customerFacade.retrieveCustomer(email);
-		if(c!=null)
+		if(c!=null){
 			if(this.password.equals(c.getPassword())){
 				this.customer=c;
 				return "access";
 			}
-		return "loginError";
-
+		}//in caso di errore da gestire meglio
+		FacesContext.getCurrentInstance().addMessage("customerController:login", new FacesMessage("email o password errata/e"));
+		return "signin";
+	}
+	
+	public String logout(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "index";
 	}
 
 	public Long getId() {

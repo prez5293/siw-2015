@@ -12,24 +12,33 @@
 		<jsp:include page="header.jsp" />
 
 		<h1>Products</h1>
-		<h:form>
-			<table>
-				<tr>
-					<th>Name</th>
-					<th>Price</th>
-				</tr>
-				<c:forEach var="product" items="#{productController.products}">
-					<tr>
-						<td><h:commandLink action="#{productController.findProduct}" value="#{product.name}">
-								<f:param name="id" value="#{product.id}" />
-							</h:commandLink></td>
-						<td>${product.price}</td>
-					</tr>
-				</c:forEach>
-			</table>
+			<h:form>
+				<div class="row">
+
+					<c:forEach var="product" items="#{productController.products}">
+						<div class="col-xs-6 col-md-3">
+							<div class="thumbnail">
+								<img src="bootstrap/img.gif" alt="...">
+								<div class="caption" style="margin-left: 100px;">
+								<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
+										<h2>
+											<f:param name="id" value="#{product.id}" />
+										</h2>
+								</div>
+								<div class="btn btn-primary" role="button"
+									style="margin-left: 100px;">Details</div>
+								</h:commandLink>
+							</div>
+
+						</div>
+
+
+					</c:forEach>
+				</div>
+			</h:form>
+			
 			<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
 
-		</h:form>
 
 	</f:view>
 </body>
