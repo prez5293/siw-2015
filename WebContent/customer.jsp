@@ -8,6 +8,7 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
 		<h1>Successfully Registered</h1>
 		<h2>Summary:</h2>
 		<div>

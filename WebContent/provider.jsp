@@ -8,6 +8,8 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
+
 		<h1>provider's informations</h1>
 
 		<div>
@@ -23,7 +25,7 @@
 			<b>vatin</b>: ${providerController.provider.vatin}
 		</div>
 
-		<h1> Provider's address </h1>
+		<h1>Provider's address</h1>
 		<div>
 			<b>street:</b> ${providerController.address.street}
 		</div>

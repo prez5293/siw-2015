@@ -10,6 +10,8 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
+
 		<h:form>
 			<h2>Product's informations</h2>
 			<div>

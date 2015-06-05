@@ -8,13 +8,13 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 
 
 @ManagedBean()
-
+@SessionScoped
 public class CustomerController {
 
-	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -46,8 +46,10 @@ public class CustomerController {
 	public String loginCustomer(){
 		Customer c = customerFacade.retrieveCustomer(email);
 		if(c!=null)
-			if(this.password.equals(c.getPassword()))
+			if(this.password.equals(c.getPassword())){
+				this.customer=c;
 				return "access";
+			}
 		return "loginError";
 
 	}

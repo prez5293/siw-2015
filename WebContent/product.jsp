@@ -8,6 +8,8 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
+
 		<h1>${productController.product.name}</h1>
 
 		<h2>Details</h2>

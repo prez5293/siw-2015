@@ -8,8 +8,8 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
 
-		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
 		<h:form>
 			<h:commandLink action="#{productController.listProducts1}"
 				value="Back to list" />

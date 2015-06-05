@@ -10,8 +10,10 @@
 </head>
 <body>
 	<f:view>
+		<jsp:include page="header.jsp" />
+
 		<h:form>
-			<h3> login: </h3>
+			<h3>login:</h3>
 			<div>
 				email:
 				<h:inputText value="#{customerController.email}" required="true"
@@ -20,15 +22,17 @@
 			</div>
 			<div>
 				password:
-				<h:inputSecret value="#{customerController.password}" required="true" 
-				requiredMessage="password is mandatory"	id="password" />
+				<h:inputSecret value="#{customerController.password}"
+					required="true" requiredMessage="password is mandatory"
+					id="password" />
 				<h:message for="password" />
 
 			</div>
 
-	        
+
 			<div>
-				<h:commandButton value="Submit" action="#{customerController.loginCustomer}" />
+				<h:commandButton value="Submit"
+					action="#{customerController.loginCustomer}" />
 			</div>
 
 		</h:form>
