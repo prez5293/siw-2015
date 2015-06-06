@@ -36,7 +36,17 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Index</a>
+					<c:choose>
+						<c:when test="${customerController.customer != null}">
+							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Index</a>
+						</c:when>
+						<c:when test="${loginController.administrator != null}">
+							<a class="navbar-brand" href="<c:url value="/faces/indexadmin.jsp" />">Index</a>
+						</c:when>
+						<c:otherwise>
+							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Index</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="collapse navbar-collapse bs-example-js-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -54,14 +64,22 @@
 							</ul></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${customerController.customer == null}">
-							<li><a href='<c:url value="/faces/login.jsp" />'>login</a></li>
-							<li><a href='<c:url value="/faces/signin.jsp" />'>signin</a></li>
-						</c:if>
-						<c:if test="${customerController.customer != null}">
-							<li><a href='#'>Benvenuto ${customerController.customer.firstName} ${customerController.customer.lastName}</a></li>
-							<li><h:commandLink action="#{customerController.logout}" value="Logout" /></li> 
-						</c:if>
+						<c:choose>
+							<c:when test="${loginController.administrator != null}">
+								<li><a href='#'>Benvenuto Admin ${loginController.administrator.firstName} ${loginController.administrator.lastName}</a></li>
+								<li><h:commandLink action="#{loginController.logout}" value="Logout" /></li>							
+							</c:when>
+							<c:when test="${customerController.customer != null}">
+								<li><a href='#'>Benvenuto ${customerController.customer.firstName} ${customerController.customer.lastName}</a></li>
+								<li><h:commandLink action="#{customerController.logout}" value="Logout" /></li> 
+							</c:when>
+							<c:otherwise>
+								<li><a href='<c:url value="/faces/login.jsp" />'>login</a></li>
+								<li><a href='<c:url value="/faces/signin.jsp" />'>signin</a></li>
+								<li><a href='<c:url value="/faces/loginadmin.jsp" />'>Area Riservata</a></li>
+							</c:otherwise>
+						</c:choose>
+
 					</ul>
 				</div>
 				<!-- /.nav-collapse -->

@@ -37,8 +37,9 @@
 				</div>
 			</h:form>
 			
-			<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
-
+ 			<ul class="pager">
+				<li><a href="<c:url value="/faces/index.jsp" />">Back to home</a></li>
+			</ul>
 
 	</f:view>
 </body>

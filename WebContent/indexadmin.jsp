@@ -13,15 +13,22 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h1>SIW-2015</h1>
-		<ul>
-			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Insert
-					a new product</a></li>
-			<li><h:form>
-					<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
-				</h:form></li>
-		</ul>
+		<div class="bs-example"
+			data-example-id="panel-without-body-with-table">
+			<div class="panel panel-default">
+				<h2>Benvenuto amministratore!</h2>
+				<!-- Default panel contents -->
+				<div class="list-group">
+					<a href="#" class="list-group-item active"> Scegli la tua operazione </a> 
+					<a href="<c:url value="/faces/newProduct.jsp" />" class="list-group-item">Inserisci prodotto</a> 
+					<h:form><h:commandLink styleClass="list-group-item" action="#{productController.listProducts}" value="List all Products" /></h:form>
+					<a href="#" class="list-group-item">Guarda i prodotti</a> 
+					<a href="#"	class="list-group-item">Guarda determinato cliente</a>
+				</div>
+
+
+			</div>
+		</div>
 	</f:view>
 </body>
 </html>
