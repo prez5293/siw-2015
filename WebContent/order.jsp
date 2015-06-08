@@ -9,20 +9,7 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-
-		<h1>${productController.product.name}</h1>
-
-		<h2>Details</h2>
-		<div>Code: ${productController.product.code}</div>
-		<div>Price: ${productController.product.price}</div>
-		<div>Description: ${productController.product.description}</div>
-        
-        
-        <h:commandButton value="ordina" action="#{orderController.createOrder}">
-        <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
-		</h:commandButton>
-		
-
+ ahahahahahhahahahahahahhahahahahahahahahahah
 
 		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
 		<h:form>

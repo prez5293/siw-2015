@@ -15,8 +15,10 @@ public class OrderLine {
 	@Column(nullable = false)
 	private Integer quantity;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Product product;
+	
+
 
 	public OrderLine() { }
 

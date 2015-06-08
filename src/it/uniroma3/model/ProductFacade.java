@@ -40,9 +40,28 @@ public class ProductFacade {
 		}
 	}
 
+	public Product retrieveProduct(String code) {
+		Product p;
+		Query q = em.createQuery("SELECT p FROM Product p WHERE p.code=:code");
+		q.setParameter("code", code);
+		if(q.getResultList().isEmpty())
+			return null;
+		else{
+			p = (Product) q.getSingleResult();
+			return p;
+		}
+	}
+	
 	public Product retrieveProduct(Long id) {
-		Product product = em.find(Product.class, id);
-		return product;
+		Product p;
+		Query q = em.createQuery("SELECT p FROM Product p WHERE p.id=:id");
+		q.setParameter("id", id);
+		if(q.getResultList().isEmpty())
+			return null;
+		else{
+			p = (Product) q.getSingleResult();
+			return p;
+		}
 	}
 
 	public List<Product> getAllProducts() {
