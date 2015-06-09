@@ -7,6 +7,7 @@ import it.uniroma3.model.Customer;
 import it.uniroma3.model.Order;
 import it.uniroma3.model.OrderFacade;
 import it.uniroma3.model.OrderLine;
+import it.uniroma3.model.Product;
 import it.uniroma3.model.ProductFacade;
 
 import javax.ejb.EJB;
@@ -24,6 +25,8 @@ public class OrderController {
 	private Integer quantity;
 	private Customer customer;
 	private String pCode;
+	private Order order;
+	private Product product;
 	private List<Order> orders;
 	private List<OrderLine> order_lines;
 
@@ -33,26 +36,44 @@ public class OrderController {
 	@EJB(beanName="pFacade")
 	private ProductFacade productFacade;
 
+//	public String createOrder() {
+//		List<Order> cOrders = customer.getOrders();
+//		Order openOrder = null;
+//		
+//		if(!cOrders.isEmpty())
+//			for(Order o : cOrders) {
+//				if(o.getEndTime() == null)
+//					openOrder = o;
+//			}
+//	
+//		if(openOrder == null) {
+//			Order order = orderFacade.createOrder(new Date(), customer);
+//			orderFacade.createOrderLine(unitPrice, quantity, order, productFacade.retrieveProduct("cc"));
+//			return "order";
+//		}
+////			else {
+////            orderFacade.createOrderLine(unitPrice, quantity, openOrder, productFacade.retrieveProduct(pCode));
+//            return "order";
+////		}
+//	}
+	
 	public String createOrder() {
-		List<Order> cOrders = customer.getOrders();
-		Order openOrder = null;
-
-		if(!cOrders.isEmpty())
-			for(Order o : cOrders) {
-				if(o.getEndTime() == null)
-					openOrder = o;
-			}
-
-		if(openOrder == null) {
-			Order order = orderFacade.createOrder(new Date(System.currentTimeMillis()), customer);
-			orderFacade.createOrderLine(unitPrice, quantity, order, productFacade.retrieveProduct("cc"));
-			return "order";
-		}
-
-		else {
-            orderFacade.createOrderLine(unitPrice, quantity, openOrder, productFacade.retrieveProduct(pCode));
-            return "order";
-		}
+		this.order = orderFacade.createOrder(new Date(), customer);
+		this.customer.addOrder(order);
+		return "order";
+	}
+	
+	public String addOrderLine(){
+		OrderLine ordline; // = this.order.checkOrderLine(this.product);
+/*		if(ordline!= null){
+			ordline.setQuantity(ordline.getQuantity()+1);
+			orderFacade.updateOrderLine(ordline);
+		}else{*/
+        ordline = new OrderLine(this.product.getPrice(), this.quantity, this.product);
+        this.order.addOrderLine(ordline);
+        this.orderFacade.updateOrder(this.order);
+//		}
+		return "order";
 	}
 
 	public Long getId() {
@@ -96,5 +117,23 @@ public class OrderController {
 	public void setOrder_lines(List<OrderLine> order_lines) {
 		this.order_lines = order_lines;
 	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
 
 }

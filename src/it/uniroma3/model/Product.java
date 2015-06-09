@@ -14,7 +14,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Column;
 
 	@Entity
-	@NamedQuery(name = "findAllProducts", query = "SELECT p FROM Product p")
 	public class Product {
         
 	@Id
@@ -25,8 +24,8 @@ import javax.persistence.Column;
 	private String name;
 
 	private Float price;
+	
 	@Column(length = 2000)
-
 	private String description;
 
 	@Column(nullable = false)
@@ -85,15 +84,6 @@ import javax.persistence.Column;
     
     public void addProvider(Provider p) {
     	this.providers.add(p);
-    }
-	
-    public boolean equals(Object obj) {
-        Product product = (Product)obj;
-        return this.getCode().equals(product.getCode());
-    }
-
-    public int hashCode() {
-         return this.code.hashCode();
     }
 
 	public void setId(Long id) {

@@ -28,6 +28,14 @@ public class OrderFacade {
 		return orderLine;
 	}
 	
+    public void updateOrder(Order order) {
+        em.merge(order);
+    }
+    
+    public void updateOrderLine(OrderLine orderLine) {
+        em.merge(orderLine);
+    }
+	
 	
 	
 }

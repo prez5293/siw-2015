@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean()
 @SessionScoped
-public class loginController {
+public class LoginController {
 	
 	private Long id;
 	private String firstName;

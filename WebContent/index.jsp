@@ -12,7 +12,7 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-
+		
 		<ul>
 			<c:if test="${customerController.customer != null}">
 				<li>${customerController.customer.firstName}

@@ -64,10 +64,16 @@ public class ProductFacade {
 		}
 	}
 
+//	public List<Product> getAllProducts() {
+//		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
+//		cq.select(cq.from(Product.class));
+//		List<Product> products = em.createQuery(cq).getResultList();
+//		return products;
+//	}
+	
 	public List<Product> getAllProducts() {
-		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-		cq.select(cq.from(Product.class));
-		List<Product> products = em.createQuery(cq).getResultList();
+		Query q = em.createQuery("SELECT p FROM Product p");
+		List<Product> products = q.getResultList();
 		return products;
 	}
 

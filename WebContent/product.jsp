@@ -15,11 +15,12 @@
 		<h2>Details</h2>
 		<div>Code: ${productController.product.code}</div>
 		<div>Price: ${productController.product.price}</div>
-		<div>Description: ${productController.product.description}</div>
+		<div>Description: ${productController.product.description}</div> 
         
         
         <h:commandButton value="ordina" action="#{orderController.createOrder}">
         <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
+<!--      <f:setPropertyActionListener value="#{productController.product}" target="#{orderController.product}"/>   -->     
 		</h:commandButton>
 		
 

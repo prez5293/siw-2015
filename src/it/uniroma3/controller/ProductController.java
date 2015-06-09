@@ -4,14 +4,20 @@ import java.util.List;
 
 import it.uniroma3.model.Product;
 import it.uniroma3.model.ProductFacade;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+
 
 @ManagedBean()
+@SessionScoped
 public class ProductController {
 	
-	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
 	private Float price;
@@ -47,10 +53,10 @@ public class ProductController {
 		return "product";
 	}
 	
-	public String findProduct(Long id) {
-		this.product = productFacade.retrieveProduct(id);
-		return "product";
-	}
+//	public String findProduct(Long id) {
+//		this.product = productFacade.retrieveProduct(id);
+//		return "product";
+//	}
 
 	public Long getId() {
 		return id;

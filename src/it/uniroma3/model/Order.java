@@ -16,19 +16,17 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
+	@Column(nullable = false)
 	private Date creationTime;
 	
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date endTime;
 	
-	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date confirmTime;
     
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private Customer customer;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
@@ -87,5 +85,14 @@ public class Order {
 
 	public void setConfirmTime(Date confirmTime) {
 		this.confirmTime = confirmTime;
+	}
+
+	public OrderLine checkOrderLine(Product product) {
+		for(OrderLine ol : order_lines){
+			if(ol.getProduct().getId().equals(product.getId())){
+				return ol;
+			}
+		}
+		return null;
 	}
 }
