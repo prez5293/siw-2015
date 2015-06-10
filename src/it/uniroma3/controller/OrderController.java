@@ -12,6 +12,7 @@ import it.uniroma3.model.ProductFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 
 
@@ -59,8 +60,9 @@ public class OrderController {
 	
 	public String createOrder() {
 		this.order = orderFacade.createOrder(new Date(), customer);
-		this.customer.addOrder(order);
-		return "order";
+//		this.customer.addOrder(order);
+		
+		return "index";
 	}
 	
 	public String addOrderLine(){
@@ -69,9 +71,10 @@ public class OrderController {
 			ordline.setQuantity(ordline.getQuantity()+1);
 			orderFacade.updateOrderLine(ordline);
 		}else{*/
-        ordline = new OrderLine(this.product.getPrice(), this.quantity, this.product);
-        this.order.addOrderLine(ordline);
-        this.orderFacade.updateOrder(this.order);
+		
+        ordline = orderFacade.createOrderLine((float) 3, 2, this.order, this.product);
+//        this.order.addOrderLine(ordline);
+//        this.orderFacade.updateOrder(this.order);
 //		}
 		return "order";
 	}

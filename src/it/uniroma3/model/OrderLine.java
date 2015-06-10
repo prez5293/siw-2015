@@ -18,13 +18,18 @@ public class OrderLine {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Product product;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Order order;
+	
+	
 
 
 	public OrderLine() { }
 
-	public OrderLine(Float unitPrice, int quantity, Product product) {
+	public OrderLine(Float unitPrice, int quantity,Order order, Product product) {
 		this.unitPrice = unitPrice;
 		this.quantity = quantity;
+		this.order=order;
 		this.product = product;
 	}
 
@@ -51,6 +56,22 @@ public class OrderLine {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setUnitPrice(Float unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 

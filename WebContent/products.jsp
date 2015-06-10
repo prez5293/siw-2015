@@ -20,10 +20,8 @@
 							<div class="thumbnail">
 								<img src="bootstrap/img.gif" alt="...">
 								<div class="caption" style="margin-left: 100px;">
-								<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
-										<h2>
-											<f:param name="id" value="#{product.id}" />
-										</h2>
+								<h:commandLink action="#{productController.findProduct(product.id)}" value="#{product.name}">
+										
 								</div>
 								<div class="btn btn-primary" role="button"
 									style="margin-left: 100px;">Details</div>

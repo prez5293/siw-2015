@@ -12,15 +12,19 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-		
+		<h:form>
 		<ul>
 			<c:if test="${customerController.customer != null}">
 				<li>${customerController.customer.firstName}
 					${customerController.customer.lastName}</li>
+			<li> <h:commandLink action="#{orderController.createOrder}" value="crea un ordine" >
+		        <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
+				</h:commandLink>		
+			</li>
 			</c:if>
 			<li><a href='<c:url value="/faces/login.jsp" />'>login</a></li>
 			<li><a href='<c:url value="/faces/signin.jsp" />'>sign in</a></li>
-			<li><h:form>
+			<li>
 					<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
 				</h:form></li>

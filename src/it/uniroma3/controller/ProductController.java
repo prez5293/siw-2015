@@ -10,7 +10,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 
 
@@ -48,15 +47,19 @@ public class ProductController {
 		return "index"; 
 	}
 
-	public String findProduct() {
+//	public String findProduct() {
+//		Product p = productFacade.retrieveProduct(id);
+//		if(p!=null){
+//			this.product = p;
+//			return "product";
+//		}
+//		return "index";
+//	}
+	
+	public String findProduct(Long id) {
 		this.product = productFacade.retrieveProduct(id);
 		return "product";
 	}
-	
-//	public String findProduct(Long id) {
-//		this.product = productFacade.retrieveProduct(id);
-//		return "product";
-//	}
 
 	public Long getId() {
 		return id;

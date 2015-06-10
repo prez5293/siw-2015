@@ -22,7 +22,7 @@ public class OrderFacade {
 	}
 	
 	public OrderLine createOrderLine(Float unitPrice, Integer quantity, Order order, Product product) {
-		OrderLine orderLine = new OrderLine(unitPrice, quantity, product);
+		OrderLine orderLine = new OrderLine(unitPrice, quantity,order, product);
 		order.addOrderLine(orderLine);
 		em.persist(orderLine);
 		return orderLine;
