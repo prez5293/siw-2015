@@ -47,14 +47,7 @@ public class ProductController {
 		return "index"; 
 	}
 
-//	public String findProduct() {
-//		Product p = productFacade.retrieveProduct(id);
-//		if(p!=null){
-//			this.product = p;
-//			return "product";
-//		}
-//		return "index";
-//	}
+
 	
 	public String findProduct(Long id) {
 		this.product = productFacade.retrieveProduct(id);

@@ -21,6 +21,7 @@
 		        <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
 				</h:commandLink>		
 			</li>
+			<li><h:commandLink action="#{customerController.listOrders}" value="elenco ordini completati"/></li>
 			</c:if>
 			<li><a href='<c:url value="/faces/login.jsp" />'>login</a></li>
 			<li><a href='<c:url value="/faces/signin.jsp" />'>sign in</a></li>

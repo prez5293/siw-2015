@@ -9,26 +9,44 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-	
+
 		<h1>${productController.product.name}</h1>
 
 		<h2>Details</h2>
 		<div>Code: ${productController.product.code}</div>
 		<div>Price: ${productController.product.price}</div>
-		<div>Description: ${productController.product.description}</div> 
+		<div>Description: ${productController.product.description}</div>
 
-        
-        <h:commandButton value="ordina" action="#{orderController.addOrderLine}">
-<%--     <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>--%>
-        <f:setPropertyActionListener value="#{productController.product}" target="#{orderController.product}"/>     
-		</h:commandButton>
-		
-
-
-		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
 		<h:form>
-			<h:commandLink action="#{productController.listProducts}"
-				value="Back to list" />
+			<c:if test="${customerController.customer != null}">
+				<div>
+					quantità:
+					<h:inputText value="#{orderController.quantity}" required="false"
+						requiredMessage="inserire quantità" id="quantity" />
+					<h:message for="quantity" />
+				</div>
+
+				<h:commandButton value="ordina"
+					action="#{orderController.addOrderLine}">
+					<f:setPropertyActionListener value="#{productController.product}"
+						target="#{orderController.product}" />
+				</h:commandButton>
+
+			</c:if>
+
+
+			<ul class="pager">
+				<li><a href="<c:url value="/faces/index.jsp" />">Back to
+						home</a></li>
+				<li><h:commandLink action="#{productController.listProducts}"
+						value="Back to list" /></li>
+			</ul>
+
+
+
+
+			<!--  		<h:commandLink action="#{productController.listProducts}"
+				value="Back to list" /> -->
 		</h:form>
 	</f:view>
 </body>

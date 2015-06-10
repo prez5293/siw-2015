@@ -30,6 +30,7 @@ public class CustomerController {
 	private String czipcode;
 	private String ccountry;
 	private List<Customer> customers;
+	private List<Order> orders;
 
 
 	@EJB(beanName="cFacade")
@@ -54,6 +55,11 @@ public class CustomerController {
 		}//in caso di errore da gestire meglio
 		FacesContext.getCurrentInstance().addMessage("customerController:login", new FacesMessage("email o password errata/e"));
 		return "signin";
+	}
+	
+	public String listOrders() {
+		this.orders = customerFacade.getAllOrders();
+		return "orders"; 
 	}
 	
 	public String logout(){

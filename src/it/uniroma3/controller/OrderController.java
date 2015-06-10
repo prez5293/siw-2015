@@ -25,15 +25,12 @@ public class OrderController {
 	private Long id;
 	private Date endTime;
 	private Date confirmTime;
-	private Float unitPrice;
 	private Integer quantity;
 	private Customer customer;
-	private String pCode;
 	private Order order;
 	private Product product;
-	private List<Order> orders;
 	private List<OrderLine> order_lines;
-
+	
 	@EJB(beanName="oFacade")
 	private OrderFacade orderFacade;
 
@@ -42,8 +39,7 @@ public class OrderController {
 	
 	public String createOrder() {
 		this.order = orderFacade.createOrder(new Date(System.currentTimeMillis()), customer);
-		
-		return "index";
+		return "products";
 	}
 	
 	public String addOrderLine(){
@@ -53,17 +49,22 @@ public class OrderController {
 			orderFacade.updateOrderLine(ordline);
 		}else{*/
 		
-        ordline = orderFacade.createOrderLine((float) 3, 2, this.order, this.product);
+        ordline = orderFacade.createOrderLine(this.product.getPrice(), this.quantity, this.order, this.product);
 //        this.order.addOrderLine(ordline);
 //        this.orderFacade.updateOrder(this.order);
 //		}
-		return "order";
+		return "products";
 	}
 	
 	public String closeOrder(){
 //		orderFacade.closeOrder(this.order, new Date(System.currentTimeMillis()));
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
+	}
+	
+	public String findOrder(Long id) {
+		this.order = orderFacade.retrieveOrder(id);
+		return "order";
 	}
 
 	public Long getId() {
@@ -122,6 +123,14 @@ public class OrderController {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 

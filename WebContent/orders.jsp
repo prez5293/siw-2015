@@ -5,37 +5,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Products</title>
+<title>Orders</title>
 </head>
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h1>Products</h1>
+		<h1>Ordini</h1>
 			<h:form>
-			 <c:if test="${orderController.order != null}">
-			 	<div>	
-				<h:commandLink styleClass="btn btn-primary" action="#{orderController.closeOrder}" value="Termina ordine" />				
-				</div>	
-				
-				</c:if>
+			
 				
 				<div class="row">
 
-					<c:forEach var="product" items="#{productController.products}">
+					<c:forEach var="order" items="#{customerController.customer.orders}">
 						<div class="col-xs-6 col-md-3">
 							<div class="thumbnail">
-								<img src="bootstrap/img.gif" alt="...">
 								<div class="caption" style="margin-left: 100px;">
-								<h:commandLink action="#{productController.findProduct(product.id)}" value="#{product.name}">
-										
+ 								<h:commandLink action="#{orderController.findOrder(order.id)}" value="#{order.creationTime}">
+ 										
 								</div>
 								
 								
 								<div class="btn btn-primary" role="button"
 									style="margin-left: 100px;">Details</div>
-								</h:commandLink>
-							</div>
+ 								</h:commandLink>
+ 							</div>
 
 						</div>
 

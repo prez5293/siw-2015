@@ -3,6 +3,7 @@ package it.uniroma3.model;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import java.util.Date;
 
@@ -35,6 +36,20 @@ public class OrderFacade {
 //		em.persist(order);
 //	}
 	
+	public Order retrieveOrder(Long id) {
+		Order order;
+		Query q = em.createQuery("SELECT o FROM Order o WHERE o.id=:id");
+		q.setParameter("id", id);
+		if(q.getResultList().isEmpty())
+			return null;
+		else {
+			order = (Order) q.getSingleResult();
+			return order;
+		}
+		
+		
+	}
+	
 	
     public void updateOrder(Order order) {
         em.merge(order);
@@ -43,6 +58,8 @@ public class OrderFacade {
     public void updateOrderLine(OrderLine orderLine) {
         em.merge(orderLine);
     }
+    
+    
 
 
 	

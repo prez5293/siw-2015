@@ -9,13 +9,13 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
- ahahahahahhahahahahahahhahahahahahahahahahah
 
-		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
-		<h:form>
-			<h:commandLink action="#{productController.listProducts}"
-				value="Back to list" />
-		</h:form>
+		<h1>${orderController.order.creationTime}</h1>
+
+		<h2>Dettagli</h2>
+		
+
+
 	</f:view>
 </body>
 </html>

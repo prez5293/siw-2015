@@ -42,6 +42,12 @@ public class CustomerFacade {
 		}
 	}
 
+	public List<Order> getAllOrders() {
+		Query q = em.createQuery("SELECT o FROM Order o");
+		List<Order> orders = q.getResultList();
+		return orders;
+	}
+
 
 
 	public Customer getCustomer(Long id) {
