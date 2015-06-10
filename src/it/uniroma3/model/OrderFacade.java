@@ -16,10 +16,9 @@ public class OrderFacade {
 
 
 	public Order createOrder(Date date, Customer customer) {
-		Order order = new Order(date, customer);
+		Order order = new Order(date, null, customer);
 		order.setCustomer(customer);
 		customer.addOrder(order);
-		em.persist(order);
 		return order;
 	}
 	
@@ -27,14 +26,15 @@ public class OrderFacade {
 		OrderLine orderLine = new OrderLine(unitPrice, quantity, order, product);
 		order.addOrderLine(orderLine);
 		orderLine.setOrder(order);
-		em.persist(orderLine);
 		return orderLine;
 	}
 	
-//	public void closeOrder(Order order, Date date) {
-//		order.setConfirmTime(date);
-//		em.persist(order);
-//	}
+	public void closeOrder(Order order,OrderLine orderLine, Date date) {
+		order.setConfirmTime(date);
+		em.persist(order);
+		em.persist(orderLine);
+
+	}
 	
 	public Order retrieveOrder(Long id) {
 		Order order;

@@ -34,8 +34,9 @@ public class Order {
 	
 	public Order() { }
 
-	public Order(Date creationTime, Customer customer) {
+	public Order(Date creationTime,Date confirmTime, Customer customer) {
 		this.creationTime = creationTime;
+		this.confirmTime = confirmTime;
 		this.customer = customer;
 		this.order_lines = new ArrayList<OrderLine>();
 	}

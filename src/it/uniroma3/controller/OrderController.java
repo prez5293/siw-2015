@@ -29,6 +29,7 @@ public class OrderController {
 	private Customer customer;
 	private Order order;
 	private Product product;
+	private OrderLine orderLine;
 	private List<OrderLine> order_lines;
 	
 	@EJB(beanName="oFacade")
@@ -43,13 +44,13 @@ public class OrderController {
 	}
 	
 	public String addOrderLine(){
-		OrderLine ordline; // = this.order.checkOrderLine(this.product);
+	    // = this.order.checkOrderLine(this.product);
 /*		if(ordline!= null){
 			ordline.setQuantity(ordline.getQuantity()+1);
 			orderFacade.updateOrderLine(ordline);
 		}else{*/
 		
-        ordline = orderFacade.createOrderLine(this.product.getPrice(), this.quantity, this.order, this.product);
+        this.orderLine = orderFacade.createOrderLine(this.product.getPrice(), this.quantity, this.order, this.product);
 //        this.order.addOrderLine(ordline);
 //        this.orderFacade.updateOrder(this.order);
 //		}
@@ -57,7 +58,7 @@ public class OrderController {
 	}
 	
 	public String closeOrder(){
-//		orderFacade.closeOrder(this.order, new Date(System.currentTimeMillis()));
+		orderFacade.closeOrder(this.order,this.orderLine, new Date(System.currentTimeMillis()));
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
 	}
@@ -131,6 +132,14 @@ public class OrderController {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public OrderLine getOrderLine() {
+		return orderLine;
+	}
+
+	public void setOrderLine(OrderLine orderLine) {
+		this.orderLine = orderLine;
 	}
 
 

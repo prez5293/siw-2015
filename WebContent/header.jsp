@@ -38,13 +38,13 @@
 					</button>
 					<c:choose>
 						<c:when test="${customerController.customer != null}">
-							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Index</a>
+							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Home</a>
 						</c:when>
 						<c:when test="${loginController.administrator != null}">
-							<a class="navbar-brand" href="<c:url value="/faces/indexadmin.jsp" />">Index</a>
+							<a class="navbar-brand" href="<c:url value="/faces/indexadmin.jsp" />">Home</a>
 						</c:when>
 						<c:otherwise>
-							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Index</a>
+							<a class="navbar-brand" href="<c:url value="/faces/index.jsp" />">Home</a>
 						</c:otherwise>
 					</c:choose>
 				</div>

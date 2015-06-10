@@ -13,23 +13,25 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 		<h:form>
-		<ul>
-			<c:if test="${customerController.customer != null}">
-				<li>${customerController.customer.firstName}
-					${customerController.customer.lastName}</li>
-			<li> <h:commandLink action="#{orderController.createOrder}" value="crea un ordine" >
-		        <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
-				</h:commandLink>		
-			</li>
-			<li><h:commandLink action="#{customerController.listOrders}" value="elenco ordini completati"/></li>
-			</c:if>
-			<li><a href='<c:url value="/faces/login.jsp" />'>login</a></li>
-			<li><a href='<c:url value="/faces/signin.jsp" />'>sign in</a></li>
-			<li>
-					<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
-				</h:form></li>
-		</ul>
+		<div class="bs-example" data-example-id="panel-without-body-with-table">
+			<div class="panel panel-default">
+				<h2>Benvenuto!</h2>
+				<!-- Default panel contents -->
+				<div class="list-group">
+					<a href="#" class="list-group-item active"> Scegli la tua operazione </a>
+					<c:if test="${customerController.customer != null}"> 
+					<h:commandLink styleClass="list-group-item" action="#{orderController.createOrder}" value="crea un ordine" >
+				    <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
+					</h:commandLink>
+					<h:commandLink styleClass="list-group-item" action="#{customerController.listOrders}" value="elenco ordini completati" />
+					</c:if>
+					<h:commandLink styleClass="list-group-item" action="#{productController.listProducts}"  value="List all Products" />
+				</div>
+
+
+			</div>
+		</div>
+	</h:form>	
 	</f:view>
 
 </body>
