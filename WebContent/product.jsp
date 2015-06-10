@@ -16,9 +16,7 @@
 		<div>Code: ${productController.product.code}</div>
 		<div>Price: ${productController.product.price}</div>
 		<div>Description: ${productController.product.description}</div> 
-        <c:if test="${productController.product!=null}">
-        	<h1>${productController.product.name}</h1>-ale
-        </c:if>
+
         
         <h:commandButton value="ordina" action="#{orderController.addOrderLine}">
 <%--     <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>--%>

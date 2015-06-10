@@ -13,6 +13,7 @@
 
 		<h1>Products</h1>
 			<h:form>
+				<h:commandLink action="#{orderController.closeOrder}" value="Termina ordine" />				
 				<div class="row">
 
 					<c:forEach var="product" items="#{productController.products}">
@@ -29,7 +30,6 @@
 							</div>
 
 						</div>
-
 
 					</c:forEach>
 				</div>

@@ -13,10 +13,13 @@ import it.uniroma3.model.ProductFacade;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 
 
 @ManagedBean()
+@SessionScoped
 public class OrderController {
 
 	private Long id;
@@ -36,31 +39,9 @@ public class OrderController {
 
 	@EJB(beanName="pFacade")
 	private ProductFacade productFacade;
-
-//	public String createOrder() {
-//		List<Order> cOrders = customer.getOrders();
-//		Order openOrder = null;
-//		
-//		if(!cOrders.isEmpty())
-//			for(Order o : cOrders) {
-//				if(o.getEndTime() == null)
-//					openOrder = o;
-//			}
-//	
-//		if(openOrder == null) {
-//			Order order = orderFacade.createOrder(new Date(), customer);
-//			orderFacade.createOrderLine(unitPrice, quantity, order, productFacade.retrieveProduct("cc"));
-//			return "order";
-//		}
-////			else {
-////            orderFacade.createOrderLine(unitPrice, quantity, openOrder, productFacade.retrieveProduct(pCode));
-//            return "order";
-////		}
-//	}
 	
 	public String createOrder() {
-		this.order = orderFacade.createOrder(new Date(), customer);
-//		this.customer.addOrder(order);
+		this.order = orderFacade.createOrder(new Date(System.currentTimeMillis()), customer);
 		
 		return "index";
 	}
@@ -77,6 +58,12 @@ public class OrderController {
 //        this.orderFacade.updateOrder(this.order);
 //		}
 		return "order";
+	}
+	
+	public String closeOrder(){
+//		orderFacade.closeOrder(this.order, new Date(System.currentTimeMillis()));
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "index";
 	}
 
 	public Long getId() {
