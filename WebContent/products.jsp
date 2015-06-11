@@ -13,7 +13,8 @@
 
 		<h1>Products</h1>
 			<h:form>
-			 <c:if test="${orderController.order != null}">
+			
+			 <c:if test="${orderController.orderLine != null}">
 			 	<div>	
 				<h:commandLink styleClass="btn btn-primary" action="#{orderController.closeOrder}" value="Termina ordine" />				
 				</div>	
@@ -41,12 +42,32 @@
 
 					</c:forEach>
 				</div>
-			</h:form>
 			
- 			<ul class="pager">
-				<li><a href="<c:url value="/faces/index.jsp" />">Back to home</a></li>
-			</ul>
+			
+ 				<c:choose>
+				<c:when test="${loginController.administrator == null}">
+				<ul class="pager">
+					<li><h:commandLink action="faces/index.jsp"
+							value="Torna alla home" /></li>
 
+					<li><h:commandLink action="#{productController.listProducts}"
+							value="Torna alla lista" /></li>
+				</ul>
+               </c:when> 
+               
+               <c:when test="${loginController.administrator != null}">
+               <ul class="pager">
+					<li><h:commandLink action="faces/indexadmin.jsp"
+							value="Torna alla home" /></li>
+
+					<li><h:commandLink action="#{productController.listProducts}"
+							value="Torna alla lista" /></li>
+				</ul>
+               </c:when>
+               
+               </c:choose>
+               
+               </h:form>
 	</f:view>
 </body>
 </html>

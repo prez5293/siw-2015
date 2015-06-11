@@ -50,11 +50,10 @@ public class CustomerController {
 		if(c!=null){
 			if(this.password.equals(c.getPassword())){
 				this.customer=c;
-				return "access";
+				return "index";
 			}
 		}//in caso di errore da gestire meglio
-		FacesContext.getCurrentInstance().addMessage("customerController:login", new FacesMessage("email o password errata/e"));
-		return "signin";
+		return "loginError";
 	}
 	
 	public String listOrders() {

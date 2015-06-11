@@ -15,12 +15,13 @@
 		<h:form>
 		<div class="bs-example" data-example-id="panel-without-body-with-table">
 			<div class="panel panel-default">
+			
 				<h2>Benvenuto!</h2>
 				<!-- Default panel contents -->
 				<div class="list-group">
 					<a href="#" class="list-group-item active"> Scegli la tua operazione </a>
 					<c:if test="${customerController.customer != null}"> 
-					<h:commandLink styleClass="list-group-item" action="#{orderController.createOrder}" value="crea un ordine" >
+					<h:commandLink styleClass="list-group-item"  action="#{orderController.createOrder}" value="crea un ordine" >
 				    <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
 					</h:commandLink>
 					<h:commandLink styleClass="list-group-item" action="#{customerController.listOrders}" value="elenco ordini completati" />

@@ -65,6 +65,8 @@ public class OrderController {
 	
 	public String findOrder(Long id) {
 		this.order = orderFacade.retrieveOrder(id);
+	    this.order_lines = orderFacade.retrieveOrderLine(this.order.getId());
+	    if(this.order_lines==null) return "index";
 		return "order";
 	}
 

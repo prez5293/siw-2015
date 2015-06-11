@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import java.util.Date;
+import java.util.List;
 
 @Stateless(name="oFacade")
 public class OrderFacade {
@@ -46,9 +47,20 @@ public class OrderFacade {
 			order = (Order) q.getSingleResult();
 			return order;
 		}
-		
-		
 	}
+	
+	public List<OrderLine> retrieveOrderLine(Long idOrder) {
+		List<OrderLine> orderLines;
+		Query q = em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order.id=:idOrder");
+		q.setParameter("idOrder", idOrder);
+		if(q.getResultList().isEmpty())
+			return null;
+		else {
+			orderLines = q.getResultList() ;
+			return orderLines;
+		}
+	}
+	
 	
 	
     public void updateOrder(Order order) {

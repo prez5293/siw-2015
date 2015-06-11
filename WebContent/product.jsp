@@ -18,13 +18,15 @@
 		<div>Description: ${productController.product.description}</div>
 
 		<h:form>
-			<c:if test="${customerController.customer != null}">
+			<c:if test="${orderController.order != null}">
 				<div>
 					quantità:
 					<h:inputText value="#{orderController.quantity}" required="false"
 						requiredMessage="inserire quantità" id="quantity" />
 					<h:message for="quantity" />
 				</div>
+
+
 
 				<h:commandButton value="ordina"
 					action="#{orderController.addOrderLine}">
@@ -34,19 +36,31 @@
 
 			</c:if>
 
+			<c:choose>
+				<c:when test="${loginController.administrator == null}">
+				<ul class="pager">
+					<li><h:commandLink action="faces/index.jsp"
+							value="Torna alla home" /></li>
 
-			<ul class="pager">
-				<li><a href="<c:url value="/faces/index.jsp" />">Back to
-						home</a></li>
-				<li><h:commandLink action="#{productController.listProducts}"
-						value="Back to list" /></li>
-			</ul>
+					<li><h:commandLink action="#{productController.listProducts}"
+							value="Torna alla lista" /></li>
+				</ul>
+               </c:when> 
+               
+               <c:when test="${loginController.administrator != null}">
+               <ul class="pager">
+					<li><h:commandLink action="faces/indexadmin.jsp"
+							value="Torna alla home" /></li>
+
+					<li><h:commandLink action="#{productController.listProducts}"
+							value="Torna alla lista" /></li>
+				</ul>
+               </c:when>
+               
+               </c:choose>
+			
 
 
-
-
-			<!--  		<h:commandLink action="#{productController.listProducts}"
-				value="Back to list" /> -->
 		</h:form>
 	</f:view>
 </body>

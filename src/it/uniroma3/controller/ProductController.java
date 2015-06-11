@@ -42,9 +42,8 @@ public class ProductController {
 		return "products"; 
 	}
 	
-	public String listProducts1() {
-		this.products = productFacade.getAllProducts();
-		return "index"; 
+	public void listProducts1() {
+		this.products = productFacade.getAllProducts(); 
 	}
 
 
