@@ -34,8 +34,7 @@ public class LoginController {
 				return "indexadmin";
 			}
 		}
-		FacesContext.getCurrentInstance().addMessage("loginController:login", new FacesMessage("email o password errata/e"));
-		return "signin";
+		return "loginErrorAdmin";
 	}
 	
 	public String logout(){
