@@ -44,22 +44,13 @@ public class OrderController {
 	}
 	
 	public String addOrderLine(){
-	    // = this.order.checkOrderLine(this.product);
-/*		if(ordline!= null){
-			ordline.setQuantity(ordline.getQuantity()+1);
-			orderFacade.updateOrderLine(ordline);
-		}else{*/
-		
-        this.orderLine = orderFacade.createOrderLine(this.product.getPrice(), this.quantity, this.order, this.product);
-//        this.order.addOrderLine(ordline);
-//        this.orderFacade.updateOrder(this.order);
-//		}
+        this.orderLine = orderFacade.createOrderLine(this.product.getPrice()*this.quantity, this.quantity, this.order, this.product);
 		return "products";
 	}
 	
 	public String closeOrder(){
 		orderFacade.closeOrder(this.order,this.orderLine, new Date(System.currentTimeMillis()));
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("orderController");
 		return "index";
 	}
 	

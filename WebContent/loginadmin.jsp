@@ -11,28 +11,27 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-
-		<h:form>
+		<h:form styleClass="bs-example bs-example-form">
 			<h3>login Admin:</h3>
-			<div>
-				email:
-				<h:inputText value="#{loginController.email}" required="true"
+			<br>
+			  <div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">email</span>
+				<h:inputText styleClass="form-control" value="#{loginController.email}" required="true"
 					requiredMessage="email is mandatory" id="email" />
 				<h:message for="email" />
 			</div>
-			<div>
-				password:
-				<h:inputSecret value="#{loginController.password}"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">password</span>
+				<h:inputSecret styleClass="form-control" value="#{loginController.password}"
 					required="true" requiredMessage="password is mandatory"
 					id="password" />
 				<h:message for="password" />
-
 			</div>
-
+			<br>
 
 			<div>
-				<h:commandButton value="Submit"
-					action="#{loginController.loginAdmin}" />
+				<h:commandButton style="margin-left:50%;" value="Submit"	action="#{loginController.loginAdmin}" />
 			</div>
 
 		</h:form>

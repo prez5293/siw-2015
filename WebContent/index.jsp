@@ -15,7 +15,6 @@
 		<h:form>
 		<div class="bs-example" data-example-id="panel-without-body-with-table">
 			<div class="panel panel-default">
-			
 				<h2>Benvenuto!</h2>
 				<!-- Default panel contents -->
 				<div class="list-group">
@@ -26,7 +25,7 @@
 					</h:commandLink>
 					<h:commandLink styleClass="list-group-item" action="#{customerController.listOrders}" value="elenco ordini completati" />
 					</c:if>
-					<h:commandLink styleClass="list-group-item" action="#{productController.listProducts}"  value="List all Products" />
+					<h:commandLink styleClass="list-group-item" action="#{productController.listProducts}"  value="Lista di prodotti" />
 				</div>
 
 

@@ -13,13 +13,17 @@
 
 		<h1>Products</h1>
 			<h:form>
+			 <c:if test="${orderController.order != null}">
+			 <h4>Suggerimento: <small>entrare nel dettaglio di un prodotto e inserirlo nel carrello.</small></h4>
+			 </c:if>
+			
 			
 			 <c:if test="${orderController.orderLine != null}">
 			 	<div>	
 				<h:commandLink styleClass="btn btn-primary" action="#{orderController.closeOrder}" value="Termina ordine" />				
 				</div>	
 				
-				</c:if>
+			</c:if>
 				
 				<div class="row">
 

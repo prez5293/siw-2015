@@ -52,7 +52,7 @@ public class CustomerController {
 				this.customer=c;
 				return "index";
 			}
-		}//in caso di errore da gestire meglio
+		}
 		return "loginError";
 	}
 	

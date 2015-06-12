@@ -8,36 +8,57 @@
 </head>
 <body>
 	<f:view>
-	
+
 		<jsp:include page="header.jsp" />
-		<h1>Data creazione: <small>${orderController.order.creationTime}</small></h1>
+		<h1>
+			Data creazione: <small>${orderController.order.creationTime}</small>
+		</h1>
 
 		<h2>Dettagli</h2>
-		
-		
-			<h:form>
-			
-				
-				<div class="row">
+
+
+		<h:form>
+		<div class="panel panel-default">
+
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nome</th>
+						<th>Quantita</th>
+						<th>Prezzo Totale</th>
+					</tr>
+				</thead>
+				<tbody>
 
 					<c:forEach var="orderLine" items="#{orderController.order_lines}">
-						<div class="col-xs-6 col-md-3">
-							<div class="thumbnail">
-								<div class="caption" style="margin-left: 100px;">
-								${orderLine.product.name}, ${orderLine.quantity}, ${orderLine.unitPrice}
-								</div>
- 							</div>
-                
-						</div>
+						<tr>
+							<th scope="row">#</th>
+							<td>${orderLine.product.name}</td>
+							<td>${orderLine.quantity}</td>
+							<td>${orderLine.unitPrice}</td>
+						</tr>
+
+
+
 
 					</c:forEach>
-				</div>
-				
-				<ul class="pager">
-				<li><a href="<c:url value="/faces/orders.jsp" />">Torna indietro</a></li>
+
+				</tbody>
+			</table>
+		</div>
+
+
+			<ul class="pager">
+				<li><a href="<c:url value="/faces/orders.jsp" />">Torna
+						alla lista di ordini</a></li>
 			</ul>
-				
-			</h:form>
+
+
+
+
+		</h:form>
 
 
 	</f:view>

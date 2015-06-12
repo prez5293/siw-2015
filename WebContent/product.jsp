@@ -22,7 +22,8 @@
 				<div>
 					quantità:
 					<h:inputText value="#{orderController.quantity}" required="false"
-						requiredMessage="inserire quantità" id="quantity" />
+						requiredMessage="inserire quantità"
+						converterMessage="La quantità deve essere un numero" id="quantity" />
 					<h:message for="quantity" />
 				</div>
 
@@ -38,9 +39,9 @@
 
 			<c:choose>
 				<c:when test="${loginController.administrator == null}">
-				<ul class="pager">
-					<li><h:commandLink action="faces/index.jsp"
-							value="Torna alla home" /></li>
+					<ul class="pager">
+						<li><h:commandLink action="faces/index.jsp"
+								value="Torna alla home" /></li>
 
 					<li><h:commandLink action="#{productController.listProducts}"
 							value="Torna alla lista" /></li>
@@ -52,12 +53,22 @@
 					<li><h:commandLink action="faces/indexadmin.jsp"
 							value="Torna alla home" /></li>
 
-					<li><h:commandLink action="#{productController.listProducts}"
-							value="Torna alla lista" /></li>
-				</ul>
-               </c:when>
-               
-               </c:choose>
+						<li><h:commandLink action="#{productController.listProducts}"
+								value="Torna alla lista" /></li>
+					</ul>
+				</c:when>
+
+				<c:when test="${loginController.administrator != null}">
+					<ul class="pager">
+						<li><h:commandLink action="faces/indexadmin.jsp"
+								value="Torna alla home" /></li>
+
+						<li><h:commandLink action="#{productController.listProducts}"
+								value="Torna alla lista" /></li>
+					</ul>
+				</c:when>
+
+			</c:choose>
 			
 
 

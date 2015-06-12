@@ -9,43 +9,75 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
-		<h1>Successfully Registered</h1>
-		<h2>Summary:</h2>
-		<div>
-			<b>first name:</b> ${customerController.customer.firstName}
-		</div>
-		<div>
-			<b>last name:</b> ${customerController.customer.lastName}
-		</div>
-		<div>
-			<b>email:</b> ${customerController.customer.email}
-		</div>
-		<div>
-			<b>password</b>: ${customerController.customer.password}
-		</div>
-		<div>
-			<b>date of birth:</b> ${customerController.customer.dateOfBirth}
-		</div>
-		<div>
-			<b>registration date:</b>
-			${customerController.customer.registrationDate}
-		</div>
-		<div>
-			<b>street:</b> ${customerController.address.street}
-		</div>
-		<div>
-			<b>state:</b> ${customerController.address.state}
-		</div>
-		<div>
-			<b>zipcode:</b> ${customerController.address.zipcode}
-		</div>
-		<div>
-			<b>country:</b> ${customerController.address.country}
+		<h1>Registrazione avvenuta con successo</h1>
+
+		<div class="panel panel-default">
+
+			<table class="table">
+
+				<tbody>
+
+					<tr>
+						<th scope="row">Nome</th>
+						<td>${customerController.customer.firstName}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Cognome</th>
+						<td>${customerController.customer.lastName}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Email</th>
+						<td>${customerController.customer.email}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Password</th>
+						<td>${customerController.customer.password}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Data di nascita</th>
+						<td>${customerController.customer.dateOfBirth}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Data di registrazione</th>
+						<td>${customerController.customer.registrationDate}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Via</th>
+						<td>${customerController.address.street}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Citta</th>
+						<td>${customerController.address.state}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Cap</th>
+						<td>${customerController.address.zipcode}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Stato</th>
+						<td>${customerController.address.country}</td>
+					</tr>
+
+				</tbody>
+			</table>
+
 		</div>
 
 
 
-		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
+
+		<ul class="pager">
+			<li><a href="<c:url value="/faces/index.jsp" />">Torna alla home</a></li>
+		</ul>
 
 	</f:view>
 </body>

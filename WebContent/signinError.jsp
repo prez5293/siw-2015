@@ -12,7 +12,7 @@
 <body>
 	<jsp:include page="header.jsp" />
 
-	<h3>email gia' esistente</h3>
+	<h3>ops, qualcosa è andato storto</h3>
 	<a href='<c:url value="/faces/signin.jsp" />'> riprova</a>
 </body>
 </html>
