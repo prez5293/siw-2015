@@ -22,7 +22,7 @@
 				<div>
 					quantità:
 					<h:inputText value="#{orderController.quantity}" required="false"
-						requiredMessage="inserire quantità" id="quantity"
+						requiredMessage="inserire quantità"
 						converterMessage="La quantità deve essere un numero" id="quantity" />
 					<h:message for="quantity" />
 				</div>
