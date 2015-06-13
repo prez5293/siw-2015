@@ -22,7 +22,7 @@
 					<a href="<c:url value="/faces/newProduct.jsp" />" class="list-group-item">Inserisci prodotto</a> 
 					<h:commandLink styleClass="list-group-item" action="#{productController.listProducts}" value="Lista di prodotti" />
 					<h:commandLink styleClass="list-group-item" action="#{orderController.listOrders}"  value="Lista ordini" />
-					<h:commandLink styleClass="list-group-item" action="#{orderController.closeOrders}"  value="Evadi ordine" />		
+					<h:commandLink styleClass="list-group-item" action="#{orderController.listCloseOrders}"  value="Evadi ordine" />		
 				</div>
 			</div>
 		</div>

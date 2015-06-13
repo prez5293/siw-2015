@@ -32,39 +32,56 @@ public class OrderController {
 	private OrderLine orderLine;
 	private List<OrderLine> order_lines;
 	private List<Order> orders;
-	
+
 	@EJB(beanName="oFacade")
 	private OrderFacade orderFacade;
 
 	@EJB(beanName="pFacade")
 	private ProductFacade productFacade;
-	
+
 	public String createOrder() {
 		this.order = orderFacade.createOrder(new Date(System.currentTimeMillis()), customer);
 		return "products";
 	}
-	
+
 	public String addOrderLine(){
-        this.orderLine = orderFacade.createOrderLine(this.product.getPrice()*this.quantity, this.quantity, this.order, this.product);
+		this.orderLine = orderFacade.createOrderLine(this.product.getPrice()*this.quantity, this.quantity, this.order, this.product);
 		return "products";
 	}
-	
+
 	public String closeOrder(){
 		orderFacade.closeOrder(this.order,this.orderLine, new Date(System.currentTimeMillis()));
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("orderController");
 		return "index";
 	}
-	
+
 	public String findOrder(Long id) {
 		Order o = orderFacade.retrieveOrder(id);
-	    this.order_lines = orderFacade.retrieveOrderLine(o.getId());
-	    if(this.order_lines==null) return "index";
+		this.order_lines = orderFacade.retrieveOrderLine(o.getId());
+		if(this.order_lines==null) return "index";
 		return "order";
 	}
-	
+
 	public String listOrders() {
 		this.orders = orderFacade.getAllOrders();
 		return "ordersAdmin"; 
+	}
+
+	public String listCloseOrders(){
+		this.orders = orderFacade.getAllCloseOrders();
+		if(this.orders != null) {
+			if(this.orders.isEmpty())
+				return "closeOrdersError";
+
+			return "ordersCloseAdmin";
+		}
+		return "ordersNotExist";
+	}
+
+
+	public String escapeOrder(Long id){
+		this.order = orderFacade.retrieveOrderEscape(id);
+		return "orderEscaped";
 	}
 
 	public Long getId() {

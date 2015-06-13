@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,21 +23,21 @@ public class OrderFacade {
 		customer.addOrder(order);
 		return order;
 	}
-	
+
 	public OrderLine createOrderLine(Float unitPrice, Integer quantity, Order order, Product product) {
 		OrderLine orderLine = new OrderLine(unitPrice, quantity, order, product);
 		order.addOrderLine(orderLine);
 		orderLine.setOrder(order);
 		return orderLine;
 	}
-	
+
 	public void closeOrder(Order order,OrderLine orderLine, Date date) {
 		order.setConfirmTime(date);
 		em.persist(order);
 		em.persist(orderLine);
 
 	}
-	
+
 	public Order retrieveOrder(Long id) {
 		Order order;
 		Query q = em.createQuery("SELECT o FROM Order o WHERE o.id=:id");
@@ -48,7 +49,7 @@ public class OrderFacade {
 			return order;
 		}
 	}
-	
+
 	public List<OrderLine> retrieveOrderLine(Long idOrder) {
 		List<OrderLine> orderLines;
 		Query q = em.createQuery("SELECT ol FROM OrderLine ol WHERE ol.order.id=:idOrder");
@@ -60,16 +61,25 @@ public class OrderFacade {
 			return orderLines;
 		}
 	}
-	
-	
-	
-    public void updateOrder(Order order) {
-        em.merge(order);
-    }
-    
-    public void updateOrderLine(OrderLine orderLine) {
-        em.merge(orderLine);
-    }
+
+	public List<Order> getAllCloseOrders() {
+		List<Order> orders;
+		List<Order> closeOrders = new ArrayList<Order>();
+		Query q = em.createQuery("SELECT o FROM Order o");
+		if(q.getResultList().isEmpty())
+			return null;
+		else{
+			orders = q.getResultList();
+			for(Order o : orders){
+				if(o.getEndTime() == null) {
+					closeOrders.add(o);
+				}
+			}
+			return closeOrders;
+		}
+
+	}
+
 
 	public List<Order> getAllOrders() {
 		List<Order> orders;
@@ -81,13 +91,29 @@ public class OrderFacade {
 			return orders;
 		}
 	}
-    
-    
+
+	public Order retrieveOrderEscape(Long id) {
+		Order order;
+		Query q = em.createQuery("SELECT o FROM Order o WHERE o.id=:id");
+		q.setParameter("id", id);
+		if(q.getResultList().isEmpty())
+			return null;
+		else {
+			order = (Order) q.getSingleResult();
+			order.setEndTime(new Date());
+			em.merge(order);
+			return order;
+		}
+	}
 
 
-	
-	
-	
+
+
+
+
+
+
+
 }
 
 
