@@ -36,11 +36,16 @@
 								<h:commandLink action="#{productController.findProduct(product.id)}" value="#{product.name}">
 										
 								</div>
-								
+
+	
 								
 								<div class="btn btn-primary" role="button"
 									style="margin-left: 100px;">Dettagli prodotto</div>
 								</h:commandLink>
+					            <c:if test="${loginController.administrator != null}">
+					            <h:commandButton styleClass="btn btn-primary" value="rimuovi" action="#{productController.deleteProduct(product.id)}"/>
+					        
+					            </c:if>
 							</div>
 
 						</div>

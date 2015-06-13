@@ -65,13 +65,16 @@ public class ProductFacade {
 
 		
 	}
+	
+	public void deleteProduct(Long id) {
+		Product p;
+		Query q = em.createQuery("SELECT p FROM Product p WHERE p.id=:id");
+		q.setParameter("id", id);
+		p = (Product) q.getSingleResult();
+		em.remove(p);
+	}
 
-//	public List<Product> getAllProducts() {
-//		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-//		cq.select(cq.from(Product.class));
-//		List<Product> products = em.createQuery(cq).getResultList();
-//		return products;
-//	}
+
 	
 	public List<Product> getAllProducts() {
 		Query q = em.createQuery("SELECT p FROM Product p");
@@ -87,9 +90,6 @@ public class ProductFacade {
 		em.remove(product);
 	}
 
-	public void deleteProduct(Long id) {
-		Product product = em.find(Product.class, id);
-		deleteProduct(product);
-	}
+
 
 }

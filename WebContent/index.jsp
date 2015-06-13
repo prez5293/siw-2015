@@ -16,7 +16,14 @@
 		<h:form>
 		<div class="bs-example" data-example-id="panel-without-body-with-table">
 			<div class="panel panel-default">
-				<h2>Benvenuto!</h2>
+				<c:choose>
+					<c:when test="${customerController.customer != null}">
+						<h2>Benvenuto <small>${customerController.customer.firstName} ${customerController.customer.lastName}</small></h2>
+					</c:when>
+					<c:otherwise>
+						<h2>Benvenuto <small>utente</small></h2>		
+					 </c:otherwise>
+				 </c:choose>
 				<!-- Default panel contents -->
 				<div class="list-group">
 					<a href="#" class="list-group-item active"> Scegli la tua operazione </a>

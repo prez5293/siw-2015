@@ -9,40 +9,64 @@
 <body>
 	<f:view>
 		<jsp:include page="header.jsp" />
+		
+		<div class="panel panel-default">
 
-		<h1>provider's informations</h1>
+			<table class="table">
 
-		<div>
-			<b>iva:</b> ${providerController.provider.iva}
-		</div>
-		<div>
-			<b>phone number:</b> ${providerController.provider.phoneNumber}
-		</div>
-		<div>
-			<b>email:</b> ${providerController.provider.email}
-		</div>
-		<div>
-			<b>vatin</b>: ${providerController.provider.vatin}
+				<tbody>
+
+					<tr>
+						<th scope="row">iva</th>
+						<td>${providerController.provider.iva}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Numero di telefono</th>
+						<td>${providerController.provider.phoneNumber}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Email</th>
+						<td>${providerController.provider.email}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Vatin</th>
+						<td>${providerController.provider.vatin}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Indirizzo</th>
+						<td>${providerController.address.street}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Citta</th>
+						<td>${providerController.address.state}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Cap</th>
+						<td>${providerController.address.zipcode}</td>
+					</tr>
+
+					<tr>
+						<th scope="row">Stato</th>
+						<td>${providerController.address.country}</td>
+					</tr>
+
+				</tbody>
+			</table>
+
 		</div>
 
-		<h1>Provider's address</h1>
-		<div>
-			<b>street:</b> ${providerController.address.street}
-		</div>
-		<div>
-			<b>state:</b> ${providerController.address.state}
-		</div>
-		<div>
-			<b>zipcode:</b> ${providerController.address.zipcode}
-		</div>
-		<div>
-			<b>country:</b> ${providerController.address.country}
-		</div>
 
 
-
-		<a href='<c:url value="/faces/index.jsp" />'>back to home</a>
-
+		<ul class="pager">
+			<li><a href="<c:url value="/faces/indexadmin.jsp" />">Torna alla home</a></li>
+		</ul>
+		
 	</f:view>
 </body>
 </html>

@@ -37,6 +37,11 @@ public class ProductController {
 			return "providerError";
 	}
 	
+	public String deleteProduct(Long id){
+		productFacade.deleteProduct(id);
+		return "productDeleted";
+	}
+	
 	public String listProducts() {
 		this.products = productFacade.getAllProducts();
 		return "products"; 

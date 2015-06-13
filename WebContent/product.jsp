@@ -27,8 +27,6 @@
 					<h:message for="quantity" />
 				</div>
 
-
-
 				<h:commandButton value="ordina"
 					action="#{orderController.addOrderLine}">
 					<f:setPropertyActionListener value="#{productController.product}"
@@ -45,15 +43,15 @@
 						<li><h:commandLink action="faces/index.jsp"
 								value="Torna alla home" /></li>
 
-					<li><h:commandLink action="#{productController.listProducts}"
-							value="Torna alla lista" /></li>
-				</ul>
-               </c:when> 
-               
-               <c:when test="${loginController.administrator != null}">
-               <ul class="pager">
-					<li><h:commandLink action="faces/indexadmin.jsp"
-							value="Torna alla home" /></li>
+						<li><h:commandLink action="#{productController.listProducts}"
+								value="Torna alla lista" /></li>
+					</ul>
+				</c:when>
+
+				<c:when test="${loginController.administrator != null}">
+					<ul class="pager">
+						<li><h:commandLink action="faces/indexadmin.jsp"
+								value="Torna alla home" /></li>
 
 						<li><h:commandLink action="#{productController.listProducts}"
 								value="Torna alla lista" /></li>
@@ -71,10 +69,10 @@
 				</c:when>
 
 			</c:choose>
-			
 
 
-		</h:form>		
+
+		</h:form>
 	</f:view>
 </body>
 </html>

@@ -19,27 +19,27 @@
 
 					<tr>
 						<th scope="row">Nome</th>
-						<td>${customerController.customer.firstName}</td>
+						<td>${customerController.custorder.firstName}</td>
 					</tr>
 
 					<tr>
 						<th scope="row">Cognome</th>
-						<td>${customerController.customer.lastName}</td>
+						<td>${customerController.custorder.lastName}</td>
 					</tr>
 
 					<tr>
 						<th scope="row">Email</th>
-						<td>${customerController.customer.email}</td>
+						<td>${customerController.custorder.email}</td>
 					</tr>
 
 					<tr>
 						<th scope="row">Data di nascita</th>
-						<td>${customerController.customer.dateOfBirth}</td>
+						<td>${customerController.custorder.dateOfBirth}</td>
 					</tr>
 
 					<tr>
 						<th scope="row">Data di registrazione</th>
-						<td>${customerController.customer.registrationDate}</td>
+						<td>${customerController.custorder.registrationDate}</td>
 					</tr>
 
 					<tr>

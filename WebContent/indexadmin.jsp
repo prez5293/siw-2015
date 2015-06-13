@@ -19,7 +19,8 @@
 				<!-- Default panel contents -->
 				<div class="list-group">
 					<a href="#" class="list-group-item active"> Scegli la tua operazione </a> 
-					<a href="<c:url value="/faces/newProduct.jsp" />" class="list-group-item">Inserisci prodotto</a> 
+					<a href="<c:url value="/faces/newProduct.jsp" />" class="list-group-item">Inserisci prodotto</a>
+					<a href="<c:url value="/faces/newProvider.jsp" />" class="list-group-item">Inserisci fornitore</a> 
 					<h:commandLink styleClass="list-group-item" action="#{productController.listProducts}" value="Lista di prodotti" />
 					<h:commandLink styleClass="list-group-item" action="#{orderController.listOrders}"  value="Lista ordini" />
 					<h:commandLink styleClass="list-group-item" action="#{orderController.listCloseOrders}"  value="Evadi ordine" />		

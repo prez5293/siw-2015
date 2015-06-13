@@ -12,72 +12,79 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h:form>
+		<h:form styleClass="bs-example bs-example-form">
 			<h2>Provider</h2>
-			<div>
-				Iva:
-				<h:inputText value="#{providerController.iva}" required="true"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Iva</span>
+				<h:inputText styleClass="form-control" value="#{providerController.iva}" required="true"
 					requiredMessage="Iva is mandatory" id="iva" />
 				<h:message for="iva" />
 			</div>
-			<div>
-				Phone Number:
-				<h:inputText value="#{providerController.phoneNumber}"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Numero di telefono</span>
+				<h:inputText styleClass="form-control" value="#{providerController.phoneNumber}"
 					required="true" requiredMessage="Phone number is mandatory"
 					id="phoneNumber" />
 				<h:message for="phoneNumber" />
 			</div>
-			<div>
-				Email:
-				<h:inputText value="#{providerController.email}" required="true"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Email</span>
+				<h:inputText styleClass="form-control" value="#{providerController.email}" required="true"
 					requiredMessage="Email is mandatory" id="email" />
 				<h:message for="email" />
 			</div>
-			<div>
-				Vatin:
-				<h:inputText value="#{providerController.vatin}" required="true"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Vatin</span>
+				<h:inputText styleClass="form-control" value="#{providerController.vatin}" required="true"
 					requiredMessage="Vatin is mandatory" id="vatin" />
 				<h:message for="vatin" />
 			</div>
-
+			<br>
 			<h3>Address:</h3>
+			<br>
 
-			<div>
-				street:
-				<h:inputText value="#{providerController.pstreet}" required="true"
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Indirizzo</span>
+				<h:inputText styleClass="form-control" value="#{providerController.pstreet}" required="true"
 					requiredMessage="street is mandatory" id="cstreet" />
 				<h:message for="cstreet" />
 
 			</div>
-
-			<div>
-				state:
-				<h:inputText value="#{providerController.pstate}" required="true"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Citta</span>
+				<h:inputText styleClass="form-control" value="#{providerController.pstate}" required="true"
 					requiredMessage="stato is mandatory" id="cstate" />
 				<h:message for="cstate" />
 			</div>
-
-			<div>
-				zipcode:
-				<h:inputText value="#{providerController.pzipcode}" required="true"
+			<br>
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Cap</span>
+				<h:inputText styleClass="form-control" value="#{providerController.pzipcode}" required="true"
 					requiredMessage="zipcode is mandatory" id="czipcode" />
 				<h:message for="czipcode" />
 
 			</div>
+			<br>
 
-			<div>
-				country:
-				<h:inputText value="#{providerController.pcountry}" required="true"
+			<div class="input-group">
+				 <span class="input-group-addon" id="sizing-addon2">Stato</span>
+				<h:inputText styleClass="form-control" value="#{providerController.pcountry}" required="true"
 					requiredMessage="country is mandatory" id="ccountry" />
 				<h:message for="ccountry" />
 
 			</div>
+			<br>
 
 
 
 
 			<div>
-				<h:commandButton value="Submit"
+				<h:commandButton style="margin-left:50%;" value="Submit"
 					action="#{providerController.createProvider}" />
 			</div>
 

@@ -25,6 +25,7 @@ public class CustomerController {
 	private Address address;
 	private String password;
 	private Customer customer;
+	private Customer custorder;
 	private String cstreet;
 	private String cstate;
 	private String czipcode;
@@ -67,8 +68,8 @@ public class CustomerController {
 	}
 	
 	public String findCustomer(Long id){
-		this.customer =  customerFacade.findCustomer(id);
-		this.address = customerFacade.findAddress(this.customer.getId());
+		this.custorder =  customerFacade.findCustomer(id);
+		this.address = customerFacade.findAddress(this.custorder.getId());
 		return "customerAdmin";
 	}
 
@@ -190,6 +191,14 @@ public class CustomerController {
 
 	public void setCcountry(String ccountry) {
 		this.ccountry = ccountry;
+	}
+
+	public Customer getCustorder() {
+		return custorder;
+	}
+
+	public void setCustorder(Customer custorder) {
+		this.custorder = custorder;
 	}
 
 }

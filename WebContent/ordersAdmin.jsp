@@ -21,7 +21,7 @@
 						<div class="col-xs-6 col-md-3">
 							<div class="thumbnail">
 								<div class="caption" style="margin-left: 100px;">
- 								<h:commandLink action="#{customerController.findCustomer(order.id)}" value="#{order.creationTime}">
+ 								<h:commandLink action="#{customerController.findCustomer(order.id)}" value="#{order.creationTime}" >
  										
 								</div>
 								
@@ -38,7 +38,7 @@
 			</h:form>
 			
  			<ul class="pager">
-				<li><a href="<c:url value="/faces/index.jsp" />">Back to home</a></li>
+				<li><a href="<c:url value="/faces/indexadmin.jsp" />">Torna alla home</a></li>
 			</ul>
 
 	</f:view>
