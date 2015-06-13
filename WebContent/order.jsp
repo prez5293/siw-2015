@@ -15,7 +15,7 @@
 		</h1>
 
 		<h2>Dettagli</h2>
-
+		
 
 		<h:form>
 		<div class="panel panel-default">

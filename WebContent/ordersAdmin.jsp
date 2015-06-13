@@ -17,17 +17,17 @@
 				
 				<div class="row">
 
-					<c:forEach var="order" items="#{customerController.customer.orders}">
+					<c:forEach var="order" items="#{orderController.orders}">
 						<div class="col-xs-6 col-md-3">
 							<div class="thumbnail">
 								<div class="caption" style="margin-left: 100px;">
- 								<h:commandLink action="#{orderController.findOrder(order.id)}" value="#{order.creationTime}">
+ 								<h:commandLink action="#{customerController.findCustomer(order.id)}" value="#{order.creationTime}">
  										
 								</div>
 								
 								
 								<div class="btn btn-primary" role="button"
-									style="margin-left: 100px;">Dettagli Ordine</div>
+									style="margin-left: 100px;">Dettagli Cliente</div>
  								</h:commandLink>
  							</div>
 

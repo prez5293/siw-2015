@@ -70,6 +70,17 @@ public class OrderFacade {
     public void updateOrderLine(OrderLine orderLine) {
         em.merge(orderLine);
     }
+
+	public List<Order> getAllOrders() {
+		List<Order> orders;
+		Query q = em.createQuery("SELECT o FROM Order o");
+		if(q.getResultList().isEmpty())
+			return null;
+		else{
+			orders = q.getResultList();
+			return orders;
+		}
+	}
     
     
 

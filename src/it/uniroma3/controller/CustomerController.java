@@ -65,6 +65,12 @@ public class CustomerController {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "index";
 	}
+	
+	public String findCustomer(Long id){
+		this.customer =  customerFacade.findCustomer(id);
+		this.address = customerFacade.findAddress(this.customer.getId());
+		return "customerAdmin";
+	}
 
 	public Long getId() {
 		return id;

@@ -34,7 +34,7 @@ public class ProductController {
 		if(this.product!=null)
 			return "product"; 
 		else
-			return "loginError";
+			return "providerError";
 	}
 	
 	public String listProducts() {

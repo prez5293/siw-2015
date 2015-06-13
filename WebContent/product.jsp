@@ -21,7 +21,7 @@
 			<c:if test="${orderController.order != null}">
 				<div>
 					quantità:
-					<h:inputText value="#{orderController.quantity}" required="false"
+					<h:inputText value="#{orderController.quantity}" required="true"
 						requiredMessage="inserire quantità"
 						converterMessage="La quantità deve essere un numero" id="quantity" />
 					<h:message for="quantity" />
@@ -36,6 +36,8 @@
 				</h:commandButton>
 
 			</c:if>
+		</h:form>
+		<h:form>
 
 			<c:choose>
 				<c:when test="${loginController.administrator == null}">
@@ -72,7 +74,7 @@
 			
 
 
-		</h:form>
+		</h:form>		
 	</f:view>
 </body>
 </html>

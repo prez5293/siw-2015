@@ -1,3 +1,4 @@
+<%@page import="it.uniroma3.model.ProductFacade"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
@@ -20,8 +21,8 @@
 				<div class="list-group">
 					<a href="#" class="list-group-item active"> Scegli la tua operazione </a>
 					<c:if test="${customerController.customer != null}"> 
-					<h:commandLink styleClass="list-group-item"  action="#{orderController.createOrder}" value="crea un ordine" >
-				    <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>
+					<h:commandLink styleClass="list-group-item" action="#{orderController.createOrder}" value="crea un ordine" actionListener="#{productController.listProducts1}" >
+				    <f:setPropertyActionListener value="#{customerController.customer}" target="#{orderController.customer}"/>  
 					</h:commandLink>
 					<h:commandLink styleClass="list-group-item" action="#{customerController.listOrders}" value="elenco ordini completati" />
 					</c:if>

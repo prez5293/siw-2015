@@ -11,19 +11,20 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h1>Products</h1>
+		<h1>I nostri prodotti</h1>
 			<h:form>
-			 <c:if test="${orderController.order != null}">
-			 <h4>Suggerimento: <small>entrare nel dettaglio di un prodotto e inserirlo nel carrello.</small></h4>
-			 </c:if>
-			
-			
+
 			 <c:if test="${orderController.orderLine != null}">
 			 	<div>	
-				<h:commandLink styleClass="btn btn-primary" action="#{orderController.closeOrder}" value="Termina ordine" />				
+<!--  		 	${orderController.orderLine.product.name} ; -->
+				<h:commandLink style="margin-left:40%;" styleClass="btn btn-primary" action="#{orderController.closeOrder}" value="Termina ordine" />				
 				</div>	
 				
 			</c:if>
+			
+			<c:if test="${orderController.order != null}">
+			 <h4>Suggerimento: <small>entrare nel dettaglio di un prodotto e inserirlo nel carrello.</small></h4>
+			 </c:if>
 				
 				<div class="row">
 
@@ -38,7 +39,7 @@
 								
 								
 								<div class="btn btn-primary" role="button"
-									style="margin-left: 100px;">Details</div>
+									style="margin-left: 100px;">Dettagli prodotto</div>
 								</h:commandLink>
 							</div>
 
@@ -54,8 +55,6 @@
 					<li><h:commandLink action="faces/index.jsp"
 							value="Torna alla home" /></li>
 
-					<li><h:commandLink action="#{productController.listProducts}"
-							value="Torna alla lista" /></li>
 				</ul>
                </c:when> 
                
@@ -64,8 +63,6 @@
 					<li><h:commandLink action="faces/indexadmin.jsp"
 							value="Torna alla home" /></li>
 
-					<li><h:commandLink action="#{productController.listProducts}"
-							value="Torna alla lista" /></li>
 				</ul>
                </c:when>
                

@@ -12,52 +12,59 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h:form>
-			<h2>Product's informations</h2>
-			<div>
-				Name:
-				<h:inputText value="#{productController.name}" required="true"
+		<h:form styleClass="bs-example bs-example-form">
+			<h2>Informazioni del prodotto</h2>
+			<br>
+			<div class="input-group">
+			    <span class="input-group-addon" id="sizing-addon2">nome</span>
+				<h:inputText styleClass="form-control" value="#{productController.name}" required="true"
 					requiredMessage="Name is mandatory" id="name" />
 				<h:message for="name" />
 			</div>
-			<div>
-				Code:
-				<h:inputText value="#{productController.code}" required="true"
+			<br>			
+			<div class="input-group">
+			    <span class="input-group-addon" id="sizing-addon2">codice</span>
+				<h:inputText styleClass="form-control" value="#{productController.code}" required="true"
 					requiredMessage="Code is mandatory" id="code" />
 				<h:message for="code" />
 			</div>
-			<div>
-				Price:
-				<h:inputText value="#{productController.price}" required="true"
+			<br>
+			<div class="input-group">
+			    <span class="input-group-addon" id="sizing-addon2">prezzo</span>
+				<h:inputText styleClass="form-control" value="#{productController.price}" required="true"
 					requiredMessage="Price is mandatory"
 					converterMessage="Price must be a number" id="price" />
 				<h:message for="price" />
 			</div>
-			<div>
-				Description:
-				<h:inputTextarea value="#{productController.description}"
+			<br>
+			<div class="input-group">
+			    <span class="input-group-addon" id="sizing-addon2">descrizione</span>
+				<h:inputTextarea styleClass="form-control" value="#{productController.description}"
 					required="false" cols="20" rows="5" />
 
 			</div>
-
-			<div>
-				Provider's email:
-				<h:inputText value="#{productController.pemail}" required="true"
+			<br>
+			<div class="input-group">
+			    <span class="input-group-addon" id="sizing-addon2">email fornitore</span>
+				<h:inputText styleClass="form-control" value="#{productController.pemail}" required="true"
 					requiredMessage="email is mandatory" id="pemail" />
 				<h:message for="pemail" />
-
 			</div>
-
+			<br>
 
 
 
 			<div>
-				<h:commandButton value="Submit"
+				<h:commandButton style="margin-left:47%;" value="Submit"
 					action="#{productController.createProduct}" />
 			</div>
-			<h:commandLink action="#{productController.listProducts}"
-				value="List all Products" />
-		</h:form>
+			</h:form>
+			<h:form>
+				<ul class="pager">
+					<li><h:commandLink action="faces/indexadmin.jsp"
+							value="Torna alla home" /></li>
+				</ul>
+			</h:form>
 	</f:view>
 </body>
 </html>

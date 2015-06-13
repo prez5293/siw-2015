@@ -31,6 +31,7 @@ public class OrderController {
 	private Product product;
 	private OrderLine orderLine;
 	private List<OrderLine> order_lines;
+	private List<Order> orders;
 	
 	@EJB(beanName="oFacade")
 	private OrderFacade orderFacade;
@@ -55,10 +56,15 @@ public class OrderController {
 	}
 	
 	public String findOrder(Long id) {
-		this.order = orderFacade.retrieveOrder(id);
-	    this.order_lines = orderFacade.retrieveOrderLine(this.order.getId());
+		Order o = orderFacade.retrieveOrder(id);
+	    this.order_lines = orderFacade.retrieveOrderLine(o.getId());
 	    if(this.order_lines==null) return "index";
 		return "order";
+	}
+	
+	public String listOrders() {
+		this.orders = orderFacade.getAllOrders();
+		return "ordersAdmin"; 
 	}
 
 	public Long getId() {
@@ -133,6 +139,14 @@ public class OrderController {
 
 	public void setOrderLine(OrderLine orderLine) {
 		this.orderLine = orderLine;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 

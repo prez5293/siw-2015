@@ -47,6 +47,26 @@ public class CustomerFacade {
 		List<Order> orders = q.getResultList();
 		return orders;
 	}
+	
+	public Customer findCustomer(Long id) {
+		Customer c;
+		Query q = em.createQuery("SELECT c FROM Customer c WHERE c.orders.id=: id");
+		q.setParameter("id", id);
+		if(q.getResultList().isEmpty())
+			return null;
+		else{
+			c = (Customer) q.getSingleResult();
+			return c;
+		}
+	}
+	
+	public Address findAddress(Long id) {
+		Address a;
+		Query q = em.createQuery("SELECT c.address FROM Customer c WHERE c.id=:id ");
+		q.setParameter("id", id);
+		a = (Address) q.getSingleResult();
+		return a;
+	}
 
 
 
@@ -69,4 +89,8 @@ public class CustomerFacade {
 		Customer customer = em.find(Customer.class, id);
 		deleteCustomer(customer);
 	}
+
+
+
+
 }
