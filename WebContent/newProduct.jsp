@@ -18,22 +18,22 @@
 			<div class="input-group">
 			    <span class="input-group-addon" id="sizing-addon2">nome</span>
 				<h:inputText styleClass="form-control" value="#{productController.name}" required="true"
-					requiredMessage="Name is mandatory" id="name" />
+					requiredMessage="Il nome e' obbligatorio" id="name" />
 				<h:message for="name" />
 			</div>
 			<br>			
 			<div class="input-group">
 			    <span class="input-group-addon" id="sizing-addon2">codice</span>
 				<h:inputText styleClass="form-control" value="#{productController.code}" required="true"
-					requiredMessage="Code is mandatory" id="code" />
+					requiredMessage="Il codice e' obbligatorio" id="code" />
 				<h:message for="code" />
 			</div>
 			<br>
 			<div class="input-group">
 			    <span class="input-group-addon" id="sizing-addon2">prezzo</span>
 				<h:inputText styleClass="form-control" value="#{productController.price}" required="true"
-					requiredMessage="Price is mandatory"
-					converterMessage="Price must be a number" id="price" />
+					requiredMessage="Il prezzo e' obbligatorio"
+					converterMessage="Il prezzo deve essere un numero" id="price" />
 				<h:message for="price" />
 			</div>
 			<br>
@@ -47,7 +47,7 @@
 			<div class="input-group">
 			    <span class="input-group-addon" id="sizing-addon2">email fornitore</span>
 				<h:inputText styleClass="form-control" value="#{productController.pemail}" required="true"
-					requiredMessage="email is mandatory" id="pemail" />
+					requiredMessage="L'email e' obbligatoria" id="pemail" />
 				<h:message for="pemail" />
 			</div>
 			<br>

@@ -6,6 +6,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,11 +44,15 @@ public class CustomerFacade {
 	}
 
 	public List<Order> getAllOrders() {
+		List<Order> ordersValid = new ArrayList<Order>();
 		Query q = em.createQuery("SELECT o FROM Order o");
 		List<Order> orders = q.getResultList();
-		return orders;
+		for(Order o : orders) 
+			if(o.getConfirmTime()!=null)
+				ordersValid.add(o);
+		return ordersValid;
 	}
-	
+
 	public Customer findCustomer(Long id) {
 		Customer c;
 		Query q = em.createQuery("SELECT c FROM Customer c WHERE c.orders.id=: id");
@@ -59,7 +64,7 @@ public class CustomerFacade {
 			return c;
 		}
 	}
-	
+
 	public Address findAddress(Long id) {
 		Address a;
 		Query q = em.createQuery("SELECT c.address FROM Customer c WHERE c.id=:id ");

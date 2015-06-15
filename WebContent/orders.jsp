@@ -38,7 +38,7 @@
 			</h:form>
 			
  			<ul class="pager">
-				<li><a href="<c:url value="/faces/index.jsp" />">Back to home</a></li>
+				<li><a href="<c:url value="/faces/index.jsp" />">Torna alla home</a></li>
 			</ul>
 
 	</f:view>

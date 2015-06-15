@@ -1,5 +1,6 @@
 package it.uniroma3.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class OrderController {
 	private OrderLine orderLine;
 	private List<OrderLine> order_lines;
 	private List<Order> orders;
+	private List<OrderLine> cart = new ArrayList<OrderLine>();
 
 	@EJB(beanName="oFacade")
 	private OrderFacade orderFacade;
@@ -46,6 +48,7 @@ public class OrderController {
 
 	public String addOrderLine(){
 		this.orderLine = orderFacade.createOrderLine(this.product.getPrice()*this.quantity, this.quantity, this.order, this.product);
+		this.cart.add(orderLine);
 		return "products";
 	}
 
@@ -57,9 +60,10 @@ public class OrderController {
 
 	public String findOrder(Long id) {
 		Order o = orderFacade.retrieveOrder(id);
+		if(o!=null) {
 		this.order_lines = orderFacade.retrieveOrderLine(o.getId());
-		if(this.order_lines==null) return "index";
 		return "order";
+		} return "orderError";
 	}
 
 	public String listOrders() {
@@ -82,6 +86,11 @@ public class OrderController {
 	public String escapeOrder(Long id){
 		this.order = orderFacade.retrieveOrderEscape(id);
 		return "orderEscaped";
+	}
+	
+	public String leaveOrder() {
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("orderController");
+		return "products";
 	}
 
 	public Long getId() {
@@ -164,6 +173,14 @@ public class OrderController {
 
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
+	}
+
+	public List<OrderLine> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<OrderLine> cart) {
+		this.cart = cart;
 	}
 
 

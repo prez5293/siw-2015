@@ -50,20 +50,7 @@
 					</c:choose>
 				</div>
 				<div class="collapse navbar-collapse bs-example-js-navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" id="drop2" role="button"
-							class="dropdown-toggle" data-toggle="dropdown">Menu <b
-								class="caret"></b></a>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="http://twitter.com/fat">Action</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="http://twitter.com/fat">Another action</a></li>
-								<li role="presentation" class="divider"></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1"
-									href="http://twitter.com/fat">Separated link</a></li>
-							</ul></li>
-					</ul>
+
 					<ul class="nav navbar-nav navbar-right">
 						<c:choose>
 							<c:when test="${loginController.administrator != null}">

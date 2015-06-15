@@ -1,0 +1,9 @@
+Casi d'uso:
+
+   - uc1: Attore primario --> utente non registrato
+         Scenario principale di successo --> - l'utente consulta il catalogo dei prodotti 
+                                             - l'utente sceglie un prodotto e ne richiede i dettagli
+                                             - il sistema mostra i dettagli del prodotto scelto        
+                                             - l'utente ripete questi passi n volte
+   
+   - uc2

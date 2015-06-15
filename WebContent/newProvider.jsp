@@ -18,14 +18,14 @@
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Iva</span>
 				<h:inputText styleClass="form-control" value="#{providerController.iva}" required="true"
-					requiredMessage="Iva is mandatory" id="iva" />
+					requiredMessage="L'iva e' obbligatoria" id="iva" />
 				<h:message for="iva" />
 			</div>
 			<br>
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Numero di telefono</span>
 				<h:inputText styleClass="form-control" value="#{providerController.phoneNumber}"
-					required="true" requiredMessage="Phone number is mandatory"
+					required="true" requiredMessage="Il numero di telefono e' obbligatorio"
 					id="phoneNumber" />
 				<h:message for="phoneNumber" />
 			</div>
@@ -33,14 +33,14 @@
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Email</span>
 				<h:inputText styleClass="form-control" value="#{providerController.email}" required="true"
-					requiredMessage="Email is mandatory" id="email" />
+					requiredMessage="L'email e' obbligatoria" id="email" />
 				<h:message for="email" />
 			</div>
 			<br>
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Vatin</span>
 				<h:inputText styleClass="form-control" value="#{providerController.vatin}" required="true"
-					requiredMessage="Vatin is mandatory" id="vatin" />
+					requiredMessage="Vatin obbligatorio" id="vatin" />
 				<h:message for="vatin" />
 			</div>
 			<br>
@@ -50,22 +50,22 @@
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Indirizzo</span>
 				<h:inputText styleClass="form-control" value="#{providerController.pstreet}" required="true"
-					requiredMessage="street is mandatory" id="cstreet" />
+					requiredMessage="La via e' obbligatoria" id="cstreet" />
 				<h:message for="cstreet" />
 
 			</div>
 			<br>
 			<div class="input-group">
-				 <span class="input-group-addon" id="sizing-addon2">Citta</span>
+				 <span class="input-group-addon" id="sizing-addon2">Citta'</span>
 				<h:inputText styleClass="form-control" value="#{providerController.pstate}" required="true"
-					requiredMessage="stato is mandatory" id="cstate" />
+					requiredMessage="La citta' e' obbligatoria" id="cstate" />
 				<h:message for="cstate" />
 			</div>
 			<br>
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Cap</span>
 				<h:inputText styleClass="form-control" value="#{providerController.pzipcode}" required="true"
-					requiredMessage="zipcode is mandatory" id="czipcode" />
+					requiredMessage="Il cap e' obbligatorio" id="czipcode" />
 				<h:message for="czipcode" />
 
 			</div>
@@ -74,7 +74,7 @@
 			<div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">Stato</span>
 				<h:inputText styleClass="form-control" value="#{providerController.pcountry}" required="true"
-					requiredMessage="country is mandatory" id="ccountry" />
+					requiredMessage="Lo stato e' obbligatorio" id="ccountry" />
 				<h:message for="ccountry" />
 
 			</div>

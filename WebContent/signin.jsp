@@ -18,28 +18,28 @@
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">nome</span>
 				<h:inputText styleClass="form-control" value="#{customerController.firstName}" required="true"
-					requiredMessage="first name is mandatory" id="firstName" />
+					requiredMessage="Il nome e' obbligatorio" id="firstName" />
 				<h:message for="firstName" />
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">cognome</span>
 				<h:inputText styleClass="form-control" value="#{customerController.lastName}" required="true"
-					requiredMessage="last name is mandatory" id="lastName" />
+					requiredMessage="Il cognome e' obbligatorio" id="lastName" />
 				<h:message for="lastName" />
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">email</span>
 				<h:inputText styleClass="form-control" value="#{customerController.email}" required="true"
-					requiredMessage="email is mandatory" id="email" />
+					requiredMessage="L'email e' obbligatoria" id="email" />
 				<h:message for="email" />
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">password</span>
 				<h:inputSecret styleClass="form-control" value="#{customerController.password}"
-					required="true" requiredMessage="password is mandatory"
+					required="true" requiredMessage="La password e' obbligatoria"
 					id="password" />
 				<h:message for="password" />
 			</div>
@@ -47,9 +47,9 @@
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">Data di nascita</span>
 				<h:inputText styleClass="form-control" value="#{customerController.dateOfBirth}"
-					required="true" requiredMessage="date of birth is mandatory"
+					required="true" requiredMessage="La data di nascita e' obbligatoria"
 					id="dateOfBirth" converter="javax.faces.DateTime"
-					converterMessage="Formato data errato. Esempio: 27-mag-2015" />
+					converterMessage="Formato data errato. Esempio: 26-mag-2013" />
 				<h:message for="dateOfBirth" />
 			</div>
 		<br>
@@ -58,22 +58,22 @@
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">Indirizzo</span>
 				<h:inputText styleClass="form-control" value="#{customerController.cstreet}" required="true"
-					requiredMessage="street is mandatory" id="cstreet" />
+					requiredMessage="La via e' obbligatoria" id="cstreet" />
 				<h:message for="cstreet" />
 
 			</div>
 			<br>
 			<div class="input-group">
-				<span class="input-group-addon" id="sizing-addon2">Citta</span>
+				<span class="input-group-addon" id="sizing-addon2">Citta'</span>
 				<h:inputText styleClass="form-control" value="#{customerController.cstate}" required="true"
-					requiredMessage="stato is mandatory" id="cstate" />
+					requiredMessage="La citta' e' obbligatoria" id="cstate" />
 				<h:message for="cstate" />
 			</div>
 			<br>
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">cap</span>
 				<h:inputText styleClass="form-control" value="#{customerController.czipcode}" required="true"
-					requiredMessage="zipcode is mandatory" id="czipcode" />
+					requiredMessage="Il cap e' obbligatorio" id="czipcode" />
 				<h:message for="czipcode" />
 
 			</div>
@@ -81,7 +81,7 @@
 			<div class="input-group">
 				<span class="input-group-addon" id="sizing-addon2">Stato</span>
 				<h:inputText styleClass="form-control" value="#{customerController.ccountry}" required="true"
-					requiredMessage="country is mandatory" id="ccountry" />
+					requiredMessage="Lo stato e' obbligatorio" id="ccountry" />
 				<h:message for="ccountry" />
 			</div>
 			<br>

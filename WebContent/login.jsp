@@ -18,7 +18,7 @@
 			  <div class="input-group">
 				 <span class="input-group-addon" id="sizing-addon2">email</span>
 				<h:inputText styleClass="form-control" value="#{customerController.email}" required="true"
-					requiredMessage="email is mandatory" id="email" />
+					requiredMessage="L'email e' obbligatoria" id="email" />
 				<h:message for="email" />
 			 </div>
 			 
@@ -27,7 +27,7 @@
 			  <div class="input-group">
 			    <span class="input-group-addon" id="sizing-addon2">password</span>
 				<h:inputSecret styleClass="form-control" value="#{customerController.password}"
-					required="true" requiredMessage="password is mandatory"
+					required="true" requiredMessage="La password e' obbligatoria"
 					id="password" />
 				<h:message for="password" />
 			</div>
