@@ -61,14 +61,16 @@ public class OrderController {
 	public String findOrder(Long id) {
 		Order o = orderFacade.retrieveOrder(id);
 		if(o!=null) {
-		this.order_lines = orderFacade.retrieveOrderLine(o.getId());
-		return "order";
+			this.order_lines = orderFacade.retrieveOrderLine(o.getId());
+			return "order";
 		} return "orderError";
 	}
 
 	public String listOrders() {
 		this.orders = orderFacade.getAllOrders();
-		return "ordersAdmin"; 
+		if(this.orders != null)
+			return "ordersAdmin"; 
+		return "ordersAdminError";
 	}
 
 	public String listCloseOrders(){
@@ -87,7 +89,7 @@ public class OrderController {
 		Order order = orderFacade.retrieveOrderEscape(id);
 		return "orderEscaped";
 	}
-	
+
 	public String leaveOrder() {
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("orderController");
 		return "products";
