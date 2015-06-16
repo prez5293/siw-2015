@@ -10,12 +10,38 @@
 	<f:view>
 		<jsp:include page="header.jsp" />
 
-		<h1>${productController.product.name}</h1>
+		<h1>Dettagli prodotto</h1>
+		
+		<div class="panel panel-default">
 
-		<h2>Dettagli</h2>
-		<div><b>Codice:</b> ${productController.product.code}</div>
-		<div><b>Prezzo:</b> ${productController.product.price}</div>
-		<div><b>Descrizione:</b> ${productController.product.description}</div>
+			<table class="table">
+
+				<tbody>
+
+					<tr>
+						<th scope="row">Nome</th>
+						<td>${productController.product.name}</td>
+					</tr>
+					
+					<tr>
+						<th scope="row">Codice</th>
+						<td>${productController.product.code}</td>
+					</tr>
+					
+					<tr>
+						<th scope="row">Prezzo</th>
+						<td>${productController.product.price}</td>
+					</tr>
+					
+					<tr>
+						<th scope="row">Descrizione</th>
+						<td>${productController.product.description}</td>
+					</tr>
+					
+				</tbody>
+			</table>
+
+		</div>
 
 		<h:form>
 			<c:if test="${orderController.order != null}">

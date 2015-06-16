@@ -84,7 +84,7 @@ public class OrderController {
 
 
 	public String escapeOrder(Long id){
-		this.order = orderFacade.retrieveOrderEscape(id);
+		Order order = orderFacade.retrieveOrderEscape(id);
 		return "orderEscaped";
 	}
 	

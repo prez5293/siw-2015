@@ -1,9 +1,66 @@
 Casi d'uso:
 
-   - uc1: Attore primario --> utente non registrato
-         Scenario principale di successo --> - l'utente consulta il catalogo dei prodotti 
-                                             - l'utente sceglie un prodotto e ne richiede i dettagli
-                                             - il sistema mostra i dettagli del prodotto scelto        
-                                             - l'utente ripete questi passi n volte
+   - uc1: Consulta listino
+   		 Attore primario --> utente non registrato
+         Scenario principale di successo 
+          
+          - l'utente seleziona l'operazione "lista di prodotti"
+          - il sistema most 
+          - l'utente sceglie un prodotto e ne richiede i dettagli
+          - il sistema mostra i dettagli del prodotto scelto        
+          - l'utente ripete questi passi un numero indefinito di volte
    
-   - uc2
+   - uc2: Effettua ordine
+   		 Attore primario --> cliente registrato
+   		Scenario principale di successo
+   		
+   		-il cliente seleziona l'operazione "crea un ordine"
+   		-il sistema mostra il catalogo dei prodotti 
+   		-Il cliente sceglie un prodotto e aggiunge codice e quantità del prodotto scelto all'ordine
+   		-Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino,e mostra al cliente il "carrello"
+   		-Il sistema registra la riga ordine
+   		-Il cliente ripete i due passi precedenti finché necessario
+ 		-Il cliente "chiude" l'ordine
+ 		-Il sistema registra l'ordine
+   		
+   	-uc3: consulta i propri ordini
+		  Attore primario: cliente registrato
+		  Scenario principale di successo:
+		
+		-Il cliente seleziona l'operazione "elenco ordini completati"
+		-Il sistema mostra al cliente l'elenco dei suoi ordini
+		-Il cliente chiede il dettaglio di un ordine
+		-Il sistema mostra il dettaglio dell'ordine
+		-Il cliente ripete i due passi precedenti finché necessario
+   	
+	 uc4: inserimento prodotti nel catalogo
+		  Attore primario: amministratore registrato
+		 Scenario principale di successo:
+		 
+		-L'amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli
+		-Il sistema mostra un riepilogo del prodotto creato e lo registra
+		-I punti precedenti vengono ripetuti fino a che necessario
+		
+	uc5: recupera indirizzo cliente
+		Attore primario: amministratore registrato
+		Scenario principale di successo:
+		
+		-L’amministratore sceglie l'operazione "lista ordini"
+		-Il sistema mostra l' elenco di tutti gli ordini completati
+		-L'amministratore seleziona un ordine
+		-Il sistema mostra le informazioni del cliente che ha effettuato l'ordine
+		
+	uc6: evasione ordine
+		Attore primario: amministratore registrato
+		Scenario principale di successo:
+		
+		-Il sistema presenta all'amministratore l'elenco degli ordini chiusi, ma non evasi
+		-L'amministratore sceglie un ordine
+		-Il sistema evade l'ordine: aggiorna l'ordine inserendo la data di spedizione  
+		
+		
+		
+		
+		
+
+   		

@@ -10,9 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<f:view>
 	<jsp:include page="header.jsp" />
+	
 
-	<h3>ops, qualcosa è andato storto</h3>
-	<a href='<c:url value="/faces/signin.jsp" />'> riprova</a>
+	<h3>email gia usata</h3>
+	<h:commandButton styleClass="btn btn-primary" action="/faces/signin.jsp"
+						value="riprova"/>
+</f:view>
 </body>
 </html>

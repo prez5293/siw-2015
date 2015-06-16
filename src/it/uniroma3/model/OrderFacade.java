@@ -100,7 +100,7 @@ public class OrderFacade {
 			return null;
 		else {
 			order = (Order) q.getSingleResult();
-			order.setEndTime(new Date());
+			order.setEndTime(new Date(System.currentTimeMillis()));
 			em.merge(order);
 			return order;
 		}

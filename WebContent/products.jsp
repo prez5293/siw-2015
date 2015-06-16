@@ -41,14 +41,12 @@
 
 						</c:forEach>
 						<tr>
-							<td><h:form>
-									<h:commandLink style="margin-left:40%;"
-										styleClass="btn btn-primary"
+							<td colspan="4"><h:form>
+									<h:commandLink
+										styleClass="btn btn-primary" style="margin-left:45%;"
 										action="#{orderController.closeOrder}" value="Termina ordine" />
 								</h:form></td>
-							<td></td>
-							<td></td>
-							<td></td>
+						
 						</tr>
 
 					</tbody>
