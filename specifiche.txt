@@ -2,30 +2,32 @@ Casi d'uso:
 
    - uc1: Consulta listino
    		 Attore primario --> utente non registrato
-         Scenario principale di successo 
+         Scenario principale: 
           
           - l'utente seleziona l'operazione "lista di prodotti"
-          - il sistema most 
+          - il sistema mostra il catalogo dei prodotti
           - l'utente sceglie un prodotto e ne richiede i dettagli
           - il sistema mostra i dettagli del prodotto scelto        
           - l'utente ripete questi passi un numero indefinito di volte
    
    - uc2: Effettua ordine
    		 Attore primario --> cliente registrato
-   		Scenario principale di successo
+   		Scenario principale:
    		
    		-il cliente seleziona l'operazione "crea un ordine"
    		-il sistema mostra il catalogo dei prodotti 
    		-Il cliente sceglie un prodotto e aggiunge codice e quantità del prodotto scelto all'ordine
-   		-Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino,e mostra al cliente il "carrello"
+   		-Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino
    		-Il sistema registra la riga ordine
    		-Il cliente ripete i due passi precedenti finché necessario
+   		-Il cliente visualizza lo stato dell'ordine attraverso il carrello
  		-Il cliente "chiude" l'ordine
  		-Il sistema registra l'ordine
    		
    	-uc3: consulta i propri ordini
+   	
 		  Attore primario: cliente registrato
-		  Scenario principale di successo:
+		  Scenario principale:
 		
 		-Il cliente seleziona l'operazione "elenco ordini completati"
 		-Il sistema mostra al cliente l'elenco dei suoi ordini
@@ -34,8 +36,9 @@ Casi d'uso:
 		-Il cliente ripete i due passi precedenti finché necessario
    	
 	 uc4: inserimento prodotti nel catalogo
+	 
 		  Attore primario: amministratore registrato
-		 Scenario principale di successo:
+		 Scenario principale:
 		 
 		-L'amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli
 		-Il sistema mostra un riepilogo del prodotto creato e lo registra
@@ -43,7 +46,7 @@ Casi d'uso:
 		
 	uc5: recupera indirizzo cliente
 		Attore primario: amministratore registrato
-		Scenario principale di successo:
+		Scenario principale:
 		
 		-L’amministratore sceglie l'operazione "lista ordini"
 		-Il sistema mostra l' elenco di tutti gli ordini completati
@@ -52,11 +55,52 @@ Casi d'uso:
 		
 	uc6: evasione ordine
 		Attore primario: amministratore registrato
-		Scenario principale di successo:
+		Scenario principale:
 		
 		-Il sistema presenta all'amministratore l'elenco degli ordini chiusi, ma non evasi
 		-L'amministratore sceglie un ordine
 		-Il sistema evade l'ordine: aggiorna l'ordine inserendo la data di spedizione  
+		
+    uc7: inserimento prodotti nel catalogo
+
+		Attore primario: amministratore registrato
+		
+		Scenario principale:
+		
+		-l'amministratore seleziona l'operazione "inserisci prodotto"
+		-L'amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli
+		-Il sistema registra il prodotto
+		-I punti precedenti vengono ripetuti fino a che necessario
+		
+		Eccezioni:
+		se il prodotto che l'amministratore sta tentando di inserire ha un provider non presente nel sistema,
+		questo mostra una pagina di errore "provider inesistente"
+		l'utente seleziona l'operazione "riprova"
+		l'utente torna alla pagina di creazione del prodotto
+		I punti precedenti vengono ripetuti fino a che necessario
+		
+	 uc8: inserimento di provider
+		
+		Attore primario: amministratore registrato
+		
+		Scenario principale:
+		
+		-L'amministratore seleziona l'operazione "inserisci provider"
+		-L'amministratore inserisce un nuovo provider nel sistema specificandone i dettagli
+		-Il sistema registra il provider
+		
+	 uc9: rimozione prodotti nel catalogo
+	 
+		  Attore primario: amministratore registrato
+		  
+		 Scenario principale:
+		 
+		-L'amministratore seleziona l'operazione "lista di prodotti"
+		-Il sistema mostra il catalogo dei prodotti
+		-l'amministratore elimina un prodotto dal catalogo
+		-il sistema registra l'eliminazione del prodotto 
+
+		
 		
 		
 		
